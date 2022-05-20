@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "Name": "TL multiblauw 8 mono zilver",
+    "Type": "Trainingslijn",
+    "MaterialId": 2,
+    "Finishing": "Mono/Spiraal/visgraat/double",
+    "FinishMaterial1Id": 7,
+    "FinishMaterial2Id": 1,
+    "FinishMaterial3Id": 1,
+    "HookId": 4,
+    "ORingId": 7,
+    "StopBarId": 9,
+    "KeychainId": 1,
+    "EndCapsId": 10,
+    "Price": 42,
+    "InStock": 1,
+    "PictureUrl": "images/tlblue.jpg"
+  },
+  {
+    "Id": 2,
+    "Name": "TL rood 8 goud",
+    "Type": "3-in-1",
+    "MaterialId": 3,
+    "Finishing": "Mono/Spiraal/visgraat/double",
+    "FinishMaterial1Id": 8,
+    "FinishMaterial2Id": 2,
+    "FinishMaterial3Id": 3,
+    "HookId": 5,
+    "ORingId": 8,
+    "StopBarId": 10,
+    "KeychainId": 2,
+    "EndCapsId": 11,
+    "Price": 30,
+    "InStock": 2,
+    "PictureUrl": "images/redgold.jpg"
+  }
+]
