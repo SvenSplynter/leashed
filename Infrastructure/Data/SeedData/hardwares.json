@@ -1,6 +1,17 @@
 [
   {
     "Id": 1,
+    "Name": "Not applicabel",
+    "Type": "Nvt",
+    "Size": 0,
+    "Material": "Nvt",
+    "Color": "Nvt",
+    "InStock": 0,
+    "Ordered": 0,
+    "Price": 10
+  },
+  {
+    "Id": 2,
     "Name": "Eye clip 62mm nickel",
     "Type": "Clip",
     "Size": 62,
@@ -8,21 +19,21 @@
     "Color": "Nickel",
     "InStock": 19,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 2,
+    "Id": 3,
     "Name": "Eye clip 60mm pearl nickel",
     "Type": "Clip",
     "Size": 60,
     "Material": "Zinc die cast",
     "Color": "Pearl nickel",
-    "InStock": 3,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 22,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 3,
+    "Id": 4,
     "Name": "O-ring 15mm nickel plated",
     "Type": "O-ring",
     "Size": 15,
@@ -30,32 +41,32 @@
     "Color": "Nickel plated",
     "InStock": 10,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 4,
+    "Id": 5,
     "Name": "O-ring 18mm nickel plated",
     "Type": "O-ring",
     "Size": 18,
     "Material": "Metal",
     "Color": "Nickel plated",
-    "InStock": 0,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 20,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 5,
+    "Id": 6,
     "Name": "O-ring 20mm nickel plated",
     "Type": "O-ring",
     "Size": 20,
     "Material": "Metal",
     "Color": "Nickel plated",
-    "InStock": 24,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 44,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 6,
+    "Id": 7,
     "Name": "O-ring 25mm nickel plated",
     "Type": "O-ring",
     "Size": 25,
@@ -63,10 +74,10 @@
     "Color": "Nickel plated",
     "InStock": 8,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 7,
+    "Id": 8,
     "Name": "O-ring 30mm nickel plated",
     "Type": "O-ring",
     "Size": 30,
@@ -74,32 +85,32 @@
     "Color": "Nickel plated",
     "InStock": 4,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 8,
+    "Id": 9,
     "Name": "End-caps 6mm nickel",
     "Type": "End-caps",
     "Size": 6,
     "Material": "Metal",
     "Color": "Nickel",
-    "InStock": 18,
-    "Ordered": 28,
-    "Price": 0
+    "InStock": 46,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 9,
+    "Id": 10,
     "Name": "End-caps 6mm pearl nickel",
     "Type": "End-caps",
     "Size": 6,
     "Material": "Metal",
     "Color": "Pearl nickel",
-    "InStock": 0,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 20,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 10,
+    "Id": 11,
     "Name": "End-caps 8mm nickel",
     "Type": "End-caps",
     "Size": 8,
@@ -107,21 +118,21 @@
     "Color": "Nickel",
     "InStock": 0,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 11,
+    "Id": 12,
     "Name": "End-caps 8mm pearl nickel",
     "Type": "End-caps",
     "Size": 8,
     "Material": "Metal",
     "Color": "Pearl nickel",
-    "InStock": 10,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 28,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 12,
+    "Id": 13,
     "Name": "End-caps 10mm nickel",
     "Type": "End-caps",
     "Size": 10,
@@ -129,21 +140,21 @@
     "Color": "Nickel",
     "InStock": 30,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 13,
+    "Id": 14,
     "Name": "End-caps 10mm pearl nickel",
     "Type": "End-caps",
     "Size": 10,
     "Material": "Metal",
     "Color": "Pearl nickel",
-    "InStock": 0,
-    "Ordered": 20,
-    "Price": 0
+    "InStock": 20,
+    "Ordered": 0,
+    "Price": 10
   },
   {
-    "Id": 14,
+    "Id": 15,
     "Name": "End-caps 10mm gun nickel",
     "Type": "End-caps",
     "Size": 10,
@@ -151,10 +162,10 @@
     "Color": "Gun metal",
     "InStock": 4,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 15,
+    "Id": 16,
     "Name": "End-caps 12mm gun nickel",
     "Type": "End-caps",
     "Size": 12,
@@ -162,10 +173,10 @@
     "Color": "Gun metal",
     "InStock": 32,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 16,
+    "Id": 17,
     "Name": "Stop bar 20mm metal color",
     "Type": "Stop bar",
     "Size": 20,
@@ -173,10 +184,10 @@
     "Color": "Metal color",
     "InStock": 23,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 17,
+    "Id": 18,
     "Name": "Stop bar 25mm metal color",
     "Type": "Stop bar",
     "Size": 25,
@@ -184,10 +195,10 @@
     "Color": "Metal color",
     "InStock": 16,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 18,
+    "Id": 19,
     "Name": "D-ring 25mm rose gold",
     "Type": "D-ring",
     "Size": 25,
@@ -195,10 +206,10 @@
     "Color": "Rose gold",
     "InStock": 5,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 19,
+    "Id": 20,
     "Name": "D-ring 30mm rose gold",
     "Type": "D-ring",
     "Size": 30,
@@ -206,10 +217,10 @@
     "Color": "Rose gold",
     "InStock": 4,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 20,
+    "Id": 21,
     "Name": "D-ring 25mm Gun metal",
     "Type": "D-ring",
     "Size": 25,
@@ -217,10 +228,10 @@
     "Color": "Gun metal",
     "InStock": 2,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 21,
+    "Id": 22,
     "Name": "D-ring 25 x 5mm Bronze natural",
     "Type": "D-ring",
     "Size": 25,
@@ -228,17 +239,17 @@
     "Color": "Bronze natural",
     "InStock": 1,
     "Ordered": 0,
-    "Price": 0
+    "Price": 10
   },
   {
-    "Id": 22,
+    "Id": 23,
     "Name": "Sleutelring 22mm metal color",
     "Type": "Sleutelring",
     "Size": 22,
     "Material": "Metal",
     "Color": "Metal color",
-    "InStock": 3,
-    "Ordered": 50,
-    "Price": 0
+    "InStock": 53,
+    "Ordered": 0,
+    "Price": 10
   }
 ]
