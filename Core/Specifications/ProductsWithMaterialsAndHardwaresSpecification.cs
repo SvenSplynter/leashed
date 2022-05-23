@@ -15,8 +15,10 @@ namespace Core.Specifications
             AddInclude("FinishMaterial2.Color");
             AddInclude(x => x.FinishMaterial3);
             AddInclude("FinishMaterial3.Color");
-            AddInclude(x => x.Hook);
-            AddInclude(x => x.ORing);
+            AddInclude(x => x.Hook1);
+            AddInclude(x => x.Hook2);
+            AddInclude(x => x.ORing1);
+            AddInclude(x => x.ORing2);
             AddInclude(x => x.Keychain);
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);
@@ -32,8 +34,10 @@ namespace Core.Specifications
             AddInclude("FinishMaterial2.Color");
             AddInclude(x => x.FinishMaterial3);
             AddInclude("FinishMaterial3.Color");
-            AddInclude(x => x.Hook);
-            AddInclude(x => x.ORing);
+            AddInclude(x => x.Hook1);
+            AddInclude(x => x.Hook2);
+            AddInclude(x => x.ORing1);
+            AddInclude(x => x.ORing2);
             AddInclude(x => x.Keychain);
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);

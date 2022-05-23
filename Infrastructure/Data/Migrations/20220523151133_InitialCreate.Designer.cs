@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220520140528_InitialCreate")]
+    [Migration("20220523151133_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,7 +133,10 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Finishing")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("HookId")
+                    b.Property<int>("Hook1Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Hook2Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("InStock")
@@ -150,7 +153,10 @@ namespace Infrastructure.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ORingId")
+                    b.Property<int>("ORing1Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ORing2Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PictureUrl")
@@ -177,13 +183,17 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("FinishMaterial3Id");
 
-                    b.HasIndex("HookId");
+                    b.HasIndex("Hook1Id");
+
+                    b.HasIndex("Hook2Id");
 
                     b.HasIndex("KeychainId");
 
                     b.HasIndex("MaterialId");
 
-                    b.HasIndex("ORingId");
+                    b.HasIndex("ORing1Id");
+
+                    b.HasIndex("ORing2Id");
 
                     b.HasIndex("StopBarId");
 
@@ -251,9 +261,15 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Hardware", "Hook")
+                    b.HasOne("Core.Entities.Hardware", "Hook1")
                         .WithMany()
-                        .HasForeignKey("HookId")
+                        .HasForeignKey("Hook1Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Hardware", "Hook2")
+                        .WithMany()
+                        .HasForeignKey("Hook2Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -269,9 +285,15 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Hardware", "ORing")
+                    b.HasOne("Core.Entities.Hardware", "ORing1")
                         .WithMany()
-                        .HasForeignKey("ORingId")
+                        .HasForeignKey("ORing1Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Hardware", "ORing2")
+                        .WithMany()
+                        .HasForeignKey("ORing2Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -289,13 +311,17 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("FinishMaterial3");
 
-                    b.Navigation("Hook");
+                    b.Navigation("Hook1");
+
+                    b.Navigation("Hook2");
 
                     b.Navigation("Keychain");
 
                     b.Navigation("Material");
 
-                    b.Navigation("ORing");
+                    b.Navigation("ORing1");
+
+                    b.Navigation("ORing2");
 
                     b.Navigation("StopBar");
                 });

@@ -13,10 +13,14 @@ namespace Core.Entities
         public int FinishMaterial2Id { get; set; }
         public Material FinishMaterial3 { get; set; }
         public int FinishMaterial3Id { get; set; }
-        public Hardware Hook { get; set; }
-        public int HookId { get; set; }
-        public Hardware ORing { get; set; }
-        public int ORingId { get; set; }
+        public Hardware Hook1 { get; set; }
+        public int Hook1Id { get; set; }
+        public Hardware Hook2 { get; set; }
+        public int Hook2Id { get; set; }
+        public Hardware ORing1 { get; set; }
+        public int ORing1Id { get; set; }
+        public Hardware ORing2 { get; set; }
+        public int ORing2Id { get; set; }
         public Hardware StopBar { get; set; }
         public int StopBarId { get; set; }
         public Hardware Keychain { get; set; }

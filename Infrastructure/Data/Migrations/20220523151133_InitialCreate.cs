@@ -78,8 +78,10 @@ namespace Infrastructure.Data.Migrations
                     FinishMaterial1Id = table.Column<int>(type: "INTEGER", nullable: false),
                     FinishMaterial2Id = table.Column<int>(type: "INTEGER", nullable: false),
                     FinishMaterial3Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    HookId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ORingId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Hook1Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    Hook2Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    ORing1Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    ORing2Id = table.Column<int>(type: "INTEGER", nullable: false),
                     StopBarId = table.Column<int>(type: "INTEGER", nullable: false),
                     KeychainId = table.Column<int>(type: "INTEGER", nullable: false),
                     EndCapsId = table.Column<int>(type: "INTEGER", nullable: false),
@@ -97,8 +99,14 @@ namespace Infrastructure.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_Hardwares_HookId",
-                        column: x => x.HookId,
+                        name: "FK_Products_Hardwares_Hook1Id",
+                        column: x => x.Hook1Id,
+                        principalTable: "Hardwares",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Hardwares_Hook2Id",
+                        column: x => x.Hook2Id,
                         principalTable: "Hardwares",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -109,8 +117,14 @@ namespace Infrastructure.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_Hardwares_ORingId",
-                        column: x => x.ORingId,
+                        name: "FK_Products_Hardwares_ORing1Id",
+                        column: x => x.ORing1Id,
+                        principalTable: "Hardwares",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Hardwares_ORing2Id",
+                        column: x => x.ORing2Id,
                         principalTable: "Hardwares",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -193,9 +207,14 @@ namespace Infrastructure.Data.Migrations
                 column: "FinishMaterial3Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_HookId",
+                name: "IX_Products_Hook1Id",
                 table: "Products",
-                column: "HookId");
+                column: "Hook1Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_Hook2Id",
+                table: "Products",
+                column: "Hook2Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_KeychainId",
@@ -208,9 +227,14 @@ namespace Infrastructure.Data.Migrations
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ORingId",
+                name: "IX_Products_ORing1Id",
                 table: "Products",
-                column: "ORingId");
+                column: "ORing1Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ORing2Id",
+                table: "Products",
+                column: "ORing2Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_StopBarId",
