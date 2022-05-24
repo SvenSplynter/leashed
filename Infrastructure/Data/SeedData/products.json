@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "Name": "TLN multiblauw 10 mono silver grey",
-    "Type": "Trainingslijn",
+    "TypeId": 3,
     "MaterialId": 3,
     "Finishing": "Mono",
     "FinishMaterial1Id": 22,
@@ -22,7 +22,7 @@
   {
     "Id": 2,
     "Name": "TLN multirood 10 spiraal white ocean blue",
-    "Type": "Trainingslijn",
+    "TypeId": 3,
     "MaterialId": 2,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 25,
@@ -42,7 +42,7 @@
   {
     "Id": 3,
     "Name": "TLD multiblauw 10 spiraal",
-    "Type": "Traffic lead",
+    "TypeId": 4,
     "MaterialId": 3,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 26,
@@ -62,8 +62,8 @@
   {
     "Id": 4,
     "Name": "HBD",
-    "Type": "Halsband",
-    "MaterialId": 6,
+    "TypeId": 5,
+    "MaterialId": 16,
     "Finishing": "Mono",
     "FinishMaterial1Id": 5,
     "FinishMaterial2Id": 1,
@@ -82,7 +82,7 @@
   {
     "Id": 5,
     "Name": "MLN",
-    "Type": "Multilijn",
+    "TypeId": 2,
     "MaterialId": 10,
     "Finishing": "Visgraat",
     "FinishMaterial1Id": 6,
@@ -102,7 +102,7 @@
   {
     "Id": 6,
     "Name": "KCN",
-    "Type": "Keychain",
+    "TypeId": 6,
     "MaterialId": 8,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 15,
@@ -122,7 +122,7 @@
   {
     "Id": 7,
     "Name": "SLN",
-    "Type": "Standaardlijn",
+    "TypeId": 1,
     "MaterialId": 11,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 19,

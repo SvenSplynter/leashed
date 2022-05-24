@@ -66,6 +66,20 @@ namespace Infrastructure.Data
                     await context.SaveChangesAsync();
                 }
 
+                if (!context.ProductTypes.Any())
+                {
+                    var productTypesData = File.ReadAllText("../Infrastructure/Data/SeedData/producttypes.json");
+
+                    var productTypes = JsonSerializer.Deserialize<List<ProductType>>(productTypesData);
+
+                    foreach (var item in productTypes)
+                    {
+                        context.ProductTypes.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
                 if (!context.Products.Any())
                 {
                     var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");

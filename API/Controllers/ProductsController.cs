@@ -5,6 +5,7 @@ using Core.Specifications;
 using API.Dtos;
 using AutoMapper;
 using API.Errors;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -13,6 +14,7 @@ namespace API.Controllers
     public class ProductsController : BaseApiController
     {
         private readonly IGenericRepository<Product> _productsRepo;
+        private readonly IGenericRepository<ProductType> _producttypesRepo;
         private readonly IGenericRepository<Color> _colorsRepo;
         private readonly IGenericRepository<Hardware> _hardwaresRepo;
         private readonly IGenericRepository<Material> _materialsRepo;
@@ -20,6 +22,7 @@ namespace API.Controllers
         private readonly IMapper _mapper;
 
         public ProductsController(IGenericRepository<Product> productsRepo,
+                                  IGenericRepository<ProductType> producttypesRepo,
                                   IGenericRepository<Color> colorsRepo,
                                   IGenericRepository<Hardware> hardwaresRepo,
                                   IGenericRepository<Material> materialsRepo,
@@ -27,6 +30,7 @@ namespace API.Controllers
                                   IMapper mapper)
         {
             _productsRepo = productsRepo;
+            _producttypesRepo = producttypesRepo;
             _colorsRepo = colorsRepo;
             _hardwaresRepo = hardwaresRepo;
             _materialsRepo = materialsRepo;
@@ -35,13 +39,18 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productParams)
         {
-            var spec = new ProductsWithMaterialsAndHardwaresSpecification();
+            var spec = new ProductsWithMaterialsAndHardwaresSpecification(productParams);
+
+            var countSpec = new ProductWithFiltersForCountSpecification(productParams);
+            var totalItems = await _productsRepo.CountAsync(countSpec);
 
             var products = await _productsRepo.ListAsync(spec);
 
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
+            return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]
@@ -57,6 +66,12 @@ namespace API.Controllers
             return _mapper.Map<Product, ProductToReturnDto>(product);
 
 
+        }
+
+        [HttpGet("producttypes")]
+        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
+        {
+            return Ok(await _producttypesRepo.ListAllAsync());
         }
 
         [HttpGet("colors")]

@@ -35,11 +35,25 @@ namespace Infrastructure.Data.Migrations
                     Color = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     InStock = table.Column<int>(type: "INTEGER", nullable: false),
                     Ordered = table.Column<int>(type: "INTEGER", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Price = table.Column<double>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hardwares", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Abbreviation = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,7 +66,7 @@ namespace Infrastructure.Data.Migrations
                     MaterialType = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     Thickness = table.Column<int>(type: "INTEGER", nullable: false),
                     ColorId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PricePerMeter = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    PricePerMeter = table.Column<double>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,7 +86,7 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Type = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    TypeId = table.Column<int>(type: "INTEGER", maxLength: 100, nullable: false),
                     MaterialId = table.Column<int>(type: "INTEGER", nullable: false),
                     Finishing = table.Column<string>(type: "TEXT", nullable: true),
                     FinishMaterial1Id = table.Column<int>(type: "INTEGER", nullable: false),
@@ -85,7 +99,7 @@ namespace Infrastructure.Data.Migrations
                     StopBarId = table.Column<int>(type: "INTEGER", nullable: false),
                     KeychainId = table.Column<int>(type: "INTEGER", nullable: false),
                     EndCapsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     InStock = table.Column<int>(type: "INTEGER", nullable: false),
                     PictureUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -158,6 +172,12 @@ namespace Infrastructure.Data.Migrations
                         principalTable: "Materials",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_ProductTypes_TypeId",
+                        column: x => x.TypeId,
+                        principalTable: "ProductTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -168,7 +188,7 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     MaterialId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MeterInStock = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    MeterInStock = table.Column<double>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -242,6 +262,11 @@ namespace Infrastructure.Data.Migrations
                 column: "StopBarId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_TypeId",
+                table: "Products",
+                column: "TypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StockMaterials_MaterialId",
                 table: "StockMaterials",
                 column: "MaterialId");
@@ -257,6 +282,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Hardwares");
+
+            migrationBuilder.DropTable(
+                name: "ProductTypes");
 
             migrationBuilder.DropTable(
                 name: "Materials");

@@ -4,14 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.Config
 {
-    public class ProductConfiguration : IEntityTypeConfiguration<Product>
+    public class ProductTypeConfiguration : IEntityTypeConfiguration<ProductType>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<ProductType> builder)
         {
             builder.Property(p => p.Id).IsRequired();
             builder.Property(p => p.Name).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.TypeId).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.Price).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.Abbreviation).IsRequired().HasMaxLength(100);
         }
     }
 }

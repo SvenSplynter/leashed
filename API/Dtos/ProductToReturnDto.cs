@@ -6,6 +6,8 @@ namespace API.Dtos
         public string Name { get; set; }
         public string Type { get; set; }
         public string Material { get; set; }
+        public string Color { get; set; }
+        public int Size { get; set; }
         public string Finishing { get; set; }
         public string FinishMaterial1 { get; set; }
         public string FinishMaterial2 { get; set; }

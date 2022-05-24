@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Name": "Standaardlijn",
+    "Abbreviation": "SLN"
+  },
+  {
+    "Id": 2,
+    "Name": "Multilijn",
+    "Abbreviation": "MLN"
+  },
+  {
+    "Id": 3,
+    "Name": "Trainingslijn",
+    "Abbreviation": "TLN"
+  },
+  {
+    "Id": 4,
+    "Name": "Traffic Lead",
+    "Abbreviation": "TLD"
+  },
+  {
+    "Id": 5,
+    "Name": "Halsband",
+    "Abbreviation": "HBD"
+  },
+  {
+    "Id": 6,
+    "Name": "Keychain",
+    "Abbreviation": "KCN"
+  }
+]

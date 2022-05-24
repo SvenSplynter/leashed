@@ -62,7 +62,7 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("Ordered")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Price")
+                    b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Size")
@@ -97,7 +97,7 @@ namespace Infrastructure.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("PricePerMeter")
+                    b.Property<double>("PricePerMeter")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Thickness")
@@ -160,16 +160,15 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("PictureUrl")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
+                    b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("StopBarId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
+                    b.Property<int>("TypeId")
                         .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -195,7 +194,30 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("StopBarId");
 
+                    b.HasIndex("TypeId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Abbreviation")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("Core.Entities.StockMaterial", b =>
@@ -207,7 +229,7 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("MeterInStock")
+                    b.Property<double>("MeterInStock")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Name")
@@ -301,6 +323,12 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Core.Entities.ProductType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("EndCaps");
 
                     b.Navigation("FinishMaterial1");
@@ -322,6 +350,8 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("ORing2");
 
                     b.Navigation("StopBar");
+
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("Core.Entities.StockMaterial", b =>

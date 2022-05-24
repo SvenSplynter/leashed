@@ -1,12 +1,18 @@
-using System.Linq.Expressions;
 using Core.Entities;
 
 namespace Core.Specifications
 {
     public class ProductsWithMaterialsAndHardwaresSpecification : BaseSpecification<Product>
     {
-        public ProductsWithMaterialsAndHardwaresSpecification()
+        public ProductsWithMaterialsAndHardwaresSpecification(ProductSpecParams productParams)
+            : base(x => 
+                (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
+                (!productParams.TypeId.HasValue || x.TypeId == productParams.TypeId) &&
+                (!productParams.Size.HasValue || x.Material.Thickness == productParams.Size)
+                
+            )
         {
+            AddInclude(x => x.Type);
             AddInclude(x => x.Material);
             AddInclude("Material.Color");
             AddInclude(x => x.FinishMaterial1);
@@ -22,10 +28,29 @@ namespace Core.Specifications
             AddInclude(x => x.Keychain);
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);
+            AddOrderBy(x => x.Name);
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
+
+            if(!string.IsNullOrEmpty(productParams.Sort)) 
+            {
+                switch(productParams.Sort)
+                {
+                    case "priceAsc":
+                        AddOrderBy(p => p.Price);
+                        break;
+                    case "priceDesc":
+                        AddOrderByDescending(p => p.Price);
+                        break;
+                    default:
+                        AddOrderBy(n => n.Name);
+                        break;
+                }
+            }
         }
 
         public ProductsWithMaterialsAndHardwaresSpecification(int id) : base(x => x.Id == id)
         {
+            AddInclude(x => x.Type);
             AddInclude(x => x.Material);
             AddInclude("Material.Color");
             AddInclude(x => x.FinishMaterial1);

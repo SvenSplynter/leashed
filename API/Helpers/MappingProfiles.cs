@@ -9,7 +9,10 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Product, ProductToReturnDto>()
+                .ForMember(d => d.Type, o => o.MapFrom(s => s.Type.Name))
                 .ForMember(d => d.Material, o => o.MapFrom(s => s.Material.Name))
+                .ForMember(d => d.Color, o => o.MapFrom(s => s.Material.Color.Name))
+                .ForMember(d => d.Size, o => o.MapFrom(s => s.Material.Thickness))
                 .ForMember(d => d.FinishMaterial1, o => o.MapFrom(s => s.FinishMaterial1.Color.Name))
                 .ForMember(d => d.FinishMaterial2, o => o.MapFrom(s => s.FinishMaterial2.Color.Name))
                 .ForMember(d => d.FinishMaterial3, o => o.MapFrom(s => s.FinishMaterial3.Color.Name))
