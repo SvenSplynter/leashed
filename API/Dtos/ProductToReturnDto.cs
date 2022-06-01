@@ -4,7 +4,8 @@ namespace API.Dtos
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string ProductType { get; set; }
+        public decimal Length { get; set; }
         public string Material { get; set; }
         public string Color { get; set; }
         public int Size { get; set; }
@@ -22,5 +23,6 @@ namespace API.Dtos
         public decimal Price { get; set; }
         public int InStock { get; set; }
         public string PictureUrl { get; set; }
+        public string LastUpdated { get; set; }
     }
 }

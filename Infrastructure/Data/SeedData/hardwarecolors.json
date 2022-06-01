@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Name": "Not Applicable",
+    "Description": "Not applicable"
+  },
+  {
+    "Id": 2,
+    "Name": "Nickel",
+    "Description": "Nickel"
+  },
+  {
+    "Id": 3,
+    "Name": "Pearl Nickel",
+    "Description": "Pearl Nickel"
+  },
+  {
+    "Id": 4,
+    "Name": "Nickel Plated",
+    "Description": "Nickel Plated"
+  },
+  {
+    "Id": 5,
+    "Name": "Gun Metal",
+    "Description": "Gun Metal"
+  },
+  {
+    "Id": 6,
+    "Name": "Metal Color",
+    "Description": "Metal Color"
+  },
+  {
+    "Id": 7,
+    "Name": "Rose Gold",
+    "Description": "Rose Gold"
+  },
+  {
+    "Id": 8,
+    "Name": "Bronze Natural",
+    "Description": "Bronze Natural"
+  }
+]

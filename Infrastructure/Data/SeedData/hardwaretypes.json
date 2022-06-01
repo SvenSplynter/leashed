@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Name": "Not Applicable",
+    "Description": "Not applicable"
+  },
+  {
+    "Id": 2,
+    "Name": "Clip",
+    "Description": "Clip"
+  },
+  {
+    "Id": 3,
+    "Name": "O-Ring",
+    "Description": "O-Ring"
+  },
+  {
+    "Id": 4,
+    "Name": "End-caps",
+    "Description": "End-caps"
+  },
+  {
+    "Id": 5,
+    "Name": "Stop bar",
+    "Description": "Stop bar"
+  },
+  {
+    "Id": 6,
+    "Name": "D-ring",
+    "Description": "D-ring"
+  },
+  {
+    "Id": 7,
+    "Name": "Sleutelring",
+    "Description": "Sleutelring"
+  }
+]

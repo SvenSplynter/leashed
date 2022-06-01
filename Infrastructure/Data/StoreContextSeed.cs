@@ -24,6 +24,48 @@ namespace Infrastructure.Data
                     await context.SaveChangesAsync();
                 }
 
+                if (!context.HardwareTypes.Any())
+                {
+                    var hardwaretypesData = File.ReadAllText("../Infrastructure/Data/SeedData/hardwaretypes.json");
+
+                    var hardwaretypes = JsonSerializer.Deserialize<List<HardwareType>>(hardwaretypesData);
+
+                    foreach (var item in hardwaretypes)
+                    {
+                        context.HardwareTypes.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.HardwareMaterials.Any())
+                {
+                    var hardwareMaterialsData = File.ReadAllText("../Infrastructure/Data/SeedData/hardwarematerials.json");
+
+                    var hardwareMaterials = JsonSerializer.Deserialize<List<HardwareMaterial>>(hardwareMaterialsData);
+
+                    foreach (var item in hardwareMaterials)
+                    {
+                        context.HardwareMaterials.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.HardwareColors.Any())
+                {
+                    var hardwareColorsData = File.ReadAllText("../Infrastructure/Data/SeedData/hardwarecolors.json");
+
+                    var hardwareColors = JsonSerializer.Deserialize<List<HardwareColor>>(hardwareColorsData);
+
+                    foreach (var item in hardwareColors)
+                    {
+                        context.HardwareColors.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
                 if (!context.Hardwares.Any())
                 {
                     var hardwaresData = File.ReadAllText("../Infrastructure/Data/SeedData/hardwares.json");
@@ -33,6 +75,20 @@ namespace Infrastructure.Data
                     foreach (var item in hardwares)
                     {
                         context.Hardwares.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+                
+                if (!context.MaterialTypes.Any())
+                {
+                    var materialTypesData = File.ReadAllText("../Infrastructure/Data/SeedData/materialtypes.json");
+
+                    var materialTypes = JsonSerializer.Deserialize<List<MaterialType>>(materialTypesData);
+
+                    foreach (var item in materialTypes)
+                    {
+                        context.MaterialTypes.Add(item);
                     }
 
                     await context.SaveChangesAsync();

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.Config
 {
-    public class ColorConfiguration : IEntityTypeConfiguration<Color>
+    public class HardwareColorConfiguration : IEntityTypeConfiguration<HardwareColor>
     {
-        public void Configure(EntityTypeBuilder<Color> builder)
+        public void Configure(EntityTypeBuilder<HardwareColor> builder)
         {
             builder.Property(p => p.Id).IsRequired();
             builder.Property(p => p.Name).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.MainColor).IsRequired().HasMaxLength(100);
+            builder.Property(p => p.Description).IsRequired().HasMaxLength(100);
         }
     }
 }

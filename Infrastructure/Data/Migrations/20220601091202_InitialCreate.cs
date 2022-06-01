@@ -15,6 +15,7 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    MainColor = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     PictureUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -23,23 +24,59 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Hardwares",
+                name: "HardwareColors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Type = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Size = table.Column<int>(type: "INTEGER", nullable: false),
-                    Material = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Color = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    InStock = table.Column<int>(type: "INTEGER", nullable: false),
-                    Ordered = table.Column<int>(type: "INTEGER", nullable: false),
-                    Price = table.Column<double>(type: "decimal(18,2)", nullable: false)
+                    Description = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hardwares", x => x.Id);
+                    table.PrimaryKey("PK_HardwareColors", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HardwareMaterials",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HardwareMaterials", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HardwareTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HardwareTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MaterialTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MaterialTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,13 +94,51 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Hardwares",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    HardwareTypeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Size = table.Column<int>(type: "INTEGER", nullable: false),
+                    HardwareMaterialId = table.Column<int>(type: "INTEGER", nullable: false),
+                    HardwareColorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    InStock = table.Column<int>(type: "INTEGER", nullable: false),
+                    Ordered = table.Column<int>(type: "INTEGER", nullable: false),
+                    Price = table.Column<double>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hardwares", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Hardwares_HardwareColors_HardwareColorId",
+                        column: x => x.HardwareColorId,
+                        principalTable: "HardwareColors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Hardwares_HardwareMaterials_HardwareMaterialId",
+                        column: x => x.HardwareMaterialId,
+                        principalTable: "HardwareMaterials",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Hardwares_HardwareTypes_HardwareTypeId",
+                        column: x => x.HardwareTypeId,
+                        principalTable: "HardwareTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Materials",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    MaterialType = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    MaterialTypeId = table.Column<int>(type: "INTEGER", nullable: false),
                     Thickness = table.Column<int>(type: "INTEGER", nullable: false),
                     ColorId = table.Column<int>(type: "INTEGER", nullable: false),
                     PricePerMeter = table.Column<double>(type: "decimal(18,2)", nullable: false)
@@ -77,6 +152,12 @@ namespace Infrastructure.Data.Migrations
                         principalTable: "Colors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Materials_MaterialTypes_MaterialTypeId",
+                        column: x => x.MaterialTypeId,
+                        principalTable: "MaterialTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +167,8 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    TypeId = table.Column<int>(type: "INTEGER", maxLength: 100, nullable: false),
+                    ProductTypeId = table.Column<int>(type: "INTEGER", maxLength: 100, nullable: false),
+                    Length = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     MaterialId = table.Column<int>(type: "INTEGER", nullable: false),
                     Finishing = table.Column<string>(type: "TEXT", nullable: true),
                     FinishMaterial1Id = table.Column<int>(type: "INTEGER", nullable: false),
@@ -101,7 +183,8 @@ namespace Infrastructure.Data.Migrations
                     EndCapsId = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     InStock = table.Column<int>(type: "INTEGER", nullable: false),
-                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true)
+                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    LastUpdated = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -173,8 +256,8 @@ namespace Infrastructure.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ProductTypes_TypeId",
-                        column: x => x.TypeId,
+                        name: "FK_Products_ProductTypes_ProductTypeId",
+                        column: x => x.ProductTypeId,
                         principalTable: "ProductTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -202,9 +285,29 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Hardwares_HardwareColorId",
+                table: "Hardwares",
+                column: "HardwareColorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hardwares_HardwareMaterialId",
+                table: "Hardwares",
+                column: "HardwareMaterialId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Hardwares_HardwareTypeId",
+                table: "Hardwares",
+                column: "HardwareTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Materials_ColorId",
                 table: "Materials",
                 column: "ColorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Materials_MaterialTypeId",
+                table: "Materials",
+                column: "MaterialTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_EndCapsId",
@@ -257,14 +360,14 @@ namespace Infrastructure.Data.Migrations
                 column: "ORing2Id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductTypeId",
+                table: "Products",
+                column: "ProductTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_StopBarId",
                 table: "Products",
                 column: "StopBarId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_TypeId",
-                table: "Products",
-                column: "TypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StockMaterials_MaterialId",
@@ -290,7 +393,19 @@ namespace Infrastructure.Data.Migrations
                 name: "Materials");
 
             migrationBuilder.DropTable(
+                name: "HardwareColors");
+
+            migrationBuilder.DropTable(
+                name: "HardwareMaterials");
+
+            migrationBuilder.DropTable(
+                name: "HardwareTypes");
+
+            migrationBuilder.DropTable(
                 name: "Colors");
+
+            migrationBuilder.DropTable(
+                name: "MaterialTypes");
         }
     }
 }

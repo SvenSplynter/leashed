@@ -13,8 +13,12 @@ namespace Infrastructure.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Material> Materials { get; set; }
+        public DbSet<MaterialType> MaterialTypes { get; set; }
         public DbSet<StockMaterial> StockMaterials { get; set; }
         public DbSet<Hardware> Hardwares { get; set; }
+        public DbSet<HardwareType> HardwareTypes { get; set; }
+        public DbSet<HardwareMaterial> HardwareMaterials { get; set; }
+        public DbSet<HardwareColor> HardwareColors { get; set; }
         public DbSet<Color> Colors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

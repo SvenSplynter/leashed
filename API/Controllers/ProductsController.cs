@@ -17,7 +17,11 @@ namespace API.Controllers
         private readonly IGenericRepository<ProductType> _producttypesRepo;
         private readonly IGenericRepository<Color> _colorsRepo;
         private readonly IGenericRepository<Hardware> _hardwaresRepo;
+        private readonly IGenericRepository<HardwareType> _hardwaretypesRepo;
+        private readonly IGenericRepository<HardwareMaterial> _hardwarematerialsRepo;
+        private readonly IGenericRepository<HardwareColor> _hardwarecolorsRepo;
         private readonly IGenericRepository<Material> _materialsRepo;
+        private readonly IGenericRepository<MaterialType> _materialtypesRepo;
         private readonly IGenericRepository<StockMaterial> _stockmaterialsRepo;
         private readonly IMapper _mapper;
 
@@ -25,7 +29,11 @@ namespace API.Controllers
                                   IGenericRepository<ProductType> producttypesRepo,
                                   IGenericRepository<Color> colorsRepo,
                                   IGenericRepository<Hardware> hardwaresRepo,
+                                  IGenericRepository<HardwareType> hardwaretypesRepo,
+                                  IGenericRepository<HardwareMaterial> hardwarematerialsRepo,
+                                  IGenericRepository<HardwareColor> hardwarecolorsRepo,
                                   IGenericRepository<Material> materialsRepo,
+                                  IGenericRepository<MaterialType> materialtypesRepo,
                                   IGenericRepository<StockMaterial> stockmaterialsRepo,
                                   IMapper mapper)
         {
@@ -33,7 +41,11 @@ namespace API.Controllers
             _producttypesRepo = producttypesRepo;
             _colorsRepo = colorsRepo;
             _hardwaresRepo = hardwaresRepo;
+            _hardwaretypesRepo = hardwaretypesRepo;
+            _hardwarematerialsRepo = hardwarematerialsRepo;
+            _hardwarecolorsRepo = hardwarecolorsRepo;
             _materialsRepo = materialsRepo;
+            _materialtypesRepo = materialtypesRepo;
             _stockmaterialsRepo = stockmaterialsRepo;
             _mapper = mapper;
         }
@@ -81,24 +93,72 @@ namespace API.Controllers
         }
 
         [HttpGet("hardwares")]
-        public async Task<ActionResult<IReadOnlyList<Hardware>>> GetHardwares()
+        public async Task<ActionResult<IReadOnlyList<Hardware>>> GetHardwares([FromQuery]HardwareSpecParams hardwareParams)
         {
-            return Ok(await _hardwaresRepo.ListAllAsync());
+            var spec = new HardwaresWithTypesAndMaterialsAndColors(hardwareParams);
+
+            var countSpec = new HardwaresWithTypesAndMaterialsAndColors(hardwareParams);
+            var totalItems = await _hardwaresRepo.CountAsync(countSpec);
+
+            var hardwares = await _hardwaresRepo.ListAsync(spec);
+
+            var data = _mapper.Map<IReadOnlyList<Hardware>, IReadOnlyList<HardwareToReturnDto>>(hardwares);
+
+            return Ok(new Pagination<HardwareToReturnDto>(hardwareParams.PageIndex, hardwareParams.PageSize, totalItems, data));
         }
 
         [HttpGet("materials")]
-        public async Task<ActionResult<IReadOnlyList<Material>>> GetMaterials()
+        public async Task<ActionResult<IReadOnlyList<Material>>> GetMaterials([FromQuery]MaterialSpecParams materialParams)
         {
-            var spec = new MaterialsWithColorsSpecification();
+            var spec = new MaterialsWithColorsAndTypesSpecification(materialParams);
 
-            return Ok(await _materialsRepo.ListAsync(spec));
+            var countSpec = new MaterialsWithColorsAndTypesSpecification(materialParams);
+            var totalItems = await _materialsRepo.CountAsync(countSpec);
+
+            var materials = await _materialsRepo.ListAsync(spec);
+
+            var data = _mapper.Map<IReadOnlyList<Material>, IReadOnlyList<MaterialToReturnDto>>(materials);
+
+            return Ok(new Pagination<MaterialToReturnDto>(materialParams.PageIndex, materialParams.PageSize, totalItems, data));
         }
 
         [HttpGet("stockmaterials")]
-        public async Task<ActionResult<IReadOnlyList<StockMaterial>>> GetStockMaterials()
+        public async Task<ActionResult<IReadOnlyList<StockMaterial>>> GetStockMaterials([FromQuery]StockmaterialSpecParams stockmaterialParams)
         {
-            var spec = new StockMaterialsWithMaterialDetailsSpecification();
-            return Ok(await _stockmaterialsRepo.ListAsync(spec));
+            var spec = new StockMaterialsWithMaterialDetailsSpecification(stockmaterialParams);
+
+            var countSpec = new StockMaterialsWithMaterialDetailsSpecification(stockmaterialParams);
+            var totalItems = await _stockmaterialsRepo.CountAsync(countSpec);
+
+            var stockmaterials = await _stockmaterialsRepo.ListAsync(spec);
+
+            var data = _mapper.Map<IReadOnlyList<StockMaterial>, IReadOnlyList<StockmaterialToReturnDto>>(stockmaterials);
+
+            return Ok(new Pagination<StockmaterialToReturnDto>(stockmaterialParams.PageIndex, stockmaterialParams.PageSize, totalItems, data));
+        }
+
+        [HttpGet("materialtypes")]
+        public async Task<ActionResult<IReadOnlyList<MaterialType>>> GetMaterialTypes()
+        {
+            return Ok(await _materialtypesRepo.ListAllAsync());
+        }
+
+        [HttpGet("hardwaretypes")]
+        public async Task<ActionResult<IReadOnlyList<Color>>> GetHardwareTypes()
+        {
+            return Ok(await _hardwaretypesRepo.ListAllAsync());
+        }
+
+        [HttpGet("hardwarematerials")]
+        public async Task<ActionResult<IReadOnlyList<Color>>> GetHardwareMaterials()
+        {
+            return Ok(await _hardwarematerialsRepo.ListAllAsync());
+        }
+
+        [HttpGet("hardwarecolors")]
+        public async Task<ActionResult<IReadOnlyList<Color>>> GetHardwareColors()
+        {
+            return Ok(await _hardwarecolorsRepo.ListAllAsync());
         }
     }
 }

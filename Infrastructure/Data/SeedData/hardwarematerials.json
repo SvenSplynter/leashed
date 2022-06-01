@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Name": "Not Applicable",
+    "Description": "Not applicable"
+  },
+  {
+    "Id": 2,
+    "Name": "Zinc Die Cast",
+    "Description": "Zinc Die Cast"
+  },
+  {
+    "Id": 3,
+    "Name": "Metal",
+    "Description": "Metal"
+  },
+  {
+    "Id": 4,
+    "Name": "Stainless Steel",
+    "Description": "Stainless Steel"
+  },
+  {
+    "Id": 5,
+    "Name": "Normal Steel",
+    "Description": "Normal Steel"
+  },
+  {
+    "Id": 6,
+    "Name": "Solid Brass",
+    "Description": "Solid Brass"
+  }
+]

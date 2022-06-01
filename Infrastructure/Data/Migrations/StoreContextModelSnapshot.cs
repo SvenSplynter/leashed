@@ -22,6 +22,11 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("MainColor")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -41,18 +46,17 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("HardwareColorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("HardwareMaterialId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("HardwareTypeId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("InStock")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Material")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -68,14 +72,78 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("Size")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Type")
+                    b.HasKey("Id");
+
+                    b.HasIndex("HardwareColorId");
+
+                    b.HasIndex("HardwareMaterialId");
+
+                    b.HasIndex("HardwareTypeId");
+
+                    b.ToTable("Hardwares");
+                });
+
+            modelBuilder.Entity("Core.Entities.HardwareColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hardwares");
+                    b.ToTable("HardwareColors");
+                });
+
+            modelBuilder.Entity("Core.Entities.HardwareMaterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HardwareMaterials");
+                });
+
+            modelBuilder.Entity("Core.Entities.HardwareType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HardwareTypes");
                 });
 
             modelBuilder.Entity("Core.Entities.Material", b =>
@@ -87,10 +155,8 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("ColorId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MaterialType")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MaterialTypeId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -107,7 +173,30 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("ColorId");
 
+                    b.HasIndex("MaterialTypeId");
+
                     b.ToTable("Materials");
+                });
+
+            modelBuilder.Entity("Core.Entities.MaterialType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MaterialTypes");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
@@ -143,6 +232,14 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("KeychainId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("LastUpdated")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Length")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("MaterialId")
                         .HasColumnType("INTEGER");
 
@@ -163,11 +260,11 @@ namespace Infrastructure.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("StopBarId")
+                    b.Property<int>("ProductTypeId")
+                        .HasMaxLength(100)
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TypeId")
-                        .HasMaxLength(100)
+                    b.Property<int>("StopBarId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -192,9 +289,9 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("ORing2Id");
 
-                    b.HasIndex("StopBarId");
+                    b.HasIndex("ProductTypeId");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("StopBarId");
 
                     b.ToTable("Products");
                 });
@@ -244,6 +341,33 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("StockMaterials");
                 });
 
+            modelBuilder.Entity("Core.Entities.Hardware", b =>
+                {
+                    b.HasOne("Core.Entities.HardwareColor", "HardwareColor")
+                        .WithMany()
+                        .HasForeignKey("HardwareColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.HardwareMaterial", "HardwareMaterial")
+                        .WithMany()
+                        .HasForeignKey("HardwareMaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.HardwareType", "HardwareType")
+                        .WithMany()
+                        .HasForeignKey("HardwareTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HardwareColor");
+
+                    b.Navigation("HardwareMaterial");
+
+                    b.Navigation("HardwareType");
+                });
+
             modelBuilder.Entity("Core.Entities.Material", b =>
                 {
                     b.HasOne("Core.Entities.Color", "Color")
@@ -252,7 +376,15 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Core.Entities.MaterialType", "MaterialType")
+                        .WithMany()
+                        .HasForeignKey("MaterialTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Color");
+
+                    b.Navigation("MaterialType");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
@@ -317,15 +449,15 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Hardware", "StopBar")
+                    b.HasOne("Core.Entities.ProductType", "ProductType")
                         .WithMany()
-                        .HasForeignKey("StopBarId")
+                        .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.ProductType", "Type")
+                    b.HasOne("Core.Entities.Hardware", "StopBar")
                         .WithMany()
-                        .HasForeignKey("TypeId")
+                        .HasForeignKey("StopBarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -349,9 +481,9 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("ORing2");
 
-                    b.Navigation("StopBar");
+                    b.Navigation("ProductType");
 
-                    b.Navigation("Type");
+                    b.Navigation("StopBar");
                 });
 
             modelBuilder.Entity("Core.Entities.StockMaterial", b =>

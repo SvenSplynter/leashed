@@ -2,7 +2,8 @@
   {
     "Id": 1,
     "Name": "TLN multiblauw 10 mono silver grey",
-    "TypeId": 3,
+    "ProductTypeId": 3,
+    "Length": 3,
     "MaterialId": 3,
     "Finishing": "Mono",
     "FinishMaterial1Id": 22,
@@ -17,12 +18,14 @@
     "EndCapsId": 12,
     "Price": 26,
     "InStock": 1,
-    "PictureUrl": "images/leiband1.jpg"
+    "PictureUrl": "images/leiband1.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 2,
     "Name": "TLN multirood 10 spiraal white ocean blue",
-    "TypeId": 3,
+    "ProductTypeId": 3,
+    "Length": 3,
     "MaterialId": 2,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 25,
@@ -37,12 +40,14 @@
     "EndCapsId": 12,
     "Price": 26,
     "InStock": 1,
-    "PictureUrl": "images/leiband2.jpg"
+    "PictureUrl": "images/leiband2.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 3,
     "Name": "TLD multiblauw 10 spiraal",
-    "TypeId": 4,
+    "ProductTypeId": 4,
+    "Length": 5,
     "MaterialId": 3,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 26,
@@ -57,12 +62,14 @@
     "EndCapsId": 13,
     "Price": 32,
     "InStock": 4,
-    "PictureUrl": "images/leiband3.jpg"
+    "PictureUrl": "images/leiband3.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 4,
     "Name": "HBD",
-    "TypeId": 5,
+    "ProductTypeId": 5,
+    "Length": 0.5,
     "MaterialId": 16,
     "Finishing": "Mono",
     "FinishMaterial1Id": 5,
@@ -77,12 +84,14 @@
     "EndCapsId": 10,
     "Price": 17,
     "InStock": 1,
-    "PictureUrl": "images/leiband4.jpg"
+    "PictureUrl": "images/leiband4.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 5,
     "Name": "MLN",
-    "TypeId": 2,
+    "ProductTypeId": 2,
+    "Length": 5,
     "MaterialId": 10,
     "Finishing": "Visgraat",
     "FinishMaterial1Id": 6,
@@ -97,12 +106,14 @@
     "EndCapsId": 11,
     "Price": 35,
     "InStock": 1,
-    "PictureUrl": "images/leiband5.jpg"
+    "PictureUrl": "images/leiband5.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 6,
     "Name": "KCN",
-    "TypeId": 6,
+    "ProductTypeId": 6,
+    "Length": 0,
     "MaterialId": 8,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 15,
@@ -117,12 +128,14 @@
     "EndCapsId": 11,
     "Price": 8,
     "InStock": 1,
-    "PictureUrl": "images/leiband6.jpg"
+    "PictureUrl": "images/leiband6.jpg",
+    "LastUpdated": "01/06/2022"
   },
   {
     "Id": 7,
     "Name": "SLN",
-    "TypeId": 1,
+    "ProductTypeId": 1,
+    "Length": 3,
     "MaterialId": 11,
     "Finishing": "Spiraal",
     "FinishMaterial1Id": 19,
@@ -137,6 +150,7 @@
     "EndCapsId": 11,
     "Price": 28,
     "InStock": 1,
-    "PictureUrl": "images/leiband7.jpg"
+    "PictureUrl": "images/leiband7.jpg",
+    "LastUpdated": "01/06/2022"
   }
 ]

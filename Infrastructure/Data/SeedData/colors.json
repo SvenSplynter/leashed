@@ -2,256 +2,367 @@
   {
     "Id": 1,
     "Name": "Not applicable",
+    "MainColor": "Not applicable",
     "PictureUrl": ""
   },
   {
     "Id": 2,
     "Name": "Multi rood",
+    "MainColor": "Rood",
     "PictureUrl": ""
   },
   {
     "Id": 3,
     "Name": "Multi mintgroen",
+    "MainColor": "Groen",
     "PictureUrl": ""
   },
   {
     "Id": 4,
     "Name": "Pastel swirl",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 5,
     "Name": "Multi kaki bruin",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 6,
     "Name": "Confetti",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 7,
     "Name": "Flower power",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 8,
     "Name": "Ocean blue",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 9,
     "Name": "Sky blue",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 10,
     "Name": "Metallic royal blue",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 11,
     "Name": "Electric blue",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 12,
     "Name": "Dark blue",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 13,
     "Name": "Baby boy",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 14,
     "Name": "Greece",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 15,
     "Name": "Sea storm",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 16,
     "Name": "Cream",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 17,
     "Name": "Beige",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 18,
     "Name": "Gold",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 19,
     "Name": "Shiny gold",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 20,
     "Name": "White nylon",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 21,
     "Name": "White",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 22,
     "Name": "Silver Grey",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 23,
     "Name": "Charcoal grey",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 24,
     "Name": "Black",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 25,
     "Name": "Black premium",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 26,
     "Name": "Brown",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 27,
     "Name": "Roasted aubergine",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 28,
     "Name": "Aubergine",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 29,
     "Name": "Red",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 30,
     "Name": "Red velvet",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 31,
     "Name": "Cranberry",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 32,
     "Name": "Red camo",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 33,
     "Name": "Neon pink",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 34,
     "Name": "Granny pink",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 35,
     "Name": "Fuchsia",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 36,
     "Name": "Aubergine & neon pink",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 37,
     "Name": "Lilac",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 38,
     "Name": "Acid purple",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 39,
     "Name": "Canary yellow",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 40,
     "Name": "Neon yellow",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 41,
     "Name": "Neon orange",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 42,
     "Name": "Bright mint",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 43,
     "Name": "Apple green",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 44,
     "Name": "Turquoise",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 45,
     "Name": "Mint",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 46,
     "Name": "Sea green",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 47,
     "Name": "Aqua premium",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 48,
     "Name": "Dark green",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 49,
     "Name": "Turquoise & pistaches stripes",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 50,
     "Name": "Abyss",
+    "MainColor": "Iets",
     "PictureUrl": ""
   },
   {
     "Id": 51,
     "Name": "Camouflage",
+    "MainColor": "Iets",
     "PictureUrl": ""
+  },
+  {
+    "Id": 52,
+    "Name": "Aqua",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/4/6/460613741.jpg"
+  },
+  {
+    "Id": 53,
+    "Name": "Raspberry red",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=400&height=400&type=webp&file=catalog/product/image/59915b73/raspberry-red-ppm-cord-o-10mm.jpg"
+  },
+  {
+    "Id": 54,
+    "Name": "Army green",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/a/r/army_green-mt020949.jpg"
+  },
+  {
+    "Id": 55,
+    "Name": "Gecko",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/4/5/454703951.jpg"
+  },
+  {
+    "Id": 56,
+    "Name": "Tartan Grey & blue",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/m/t/mt019791.jpg"
+  },
+  {
+    "Id": 57,
+    "Name": "Skylime",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/d/o/dogleash_green_yellow_blue.jpg"
+  },
+  {
+    "Id": 58,
+    "Name": "Rainbow",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/3/4/342093005_1.jpg"
+  },
+  {
+    "Id": 59,
+    "Name": "Cherry chocolate",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/3/4/345472937_1.jpg"
+  },
+  {
+    "Id": 60,
+    "Name": "Shiny silver",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/p/p/ppm_multicord-mt019072.jpg"
+  },
+  {
+    "Id": 61,
+    "Name": "Majestic",
+    "MainColor": "Iets",
+    "PictureUrl": "https://www.paracord.eu/media/fit?width=200&height=2000&type=webp&file=catalog/product/6/5/652871067.jpg"
   }
 ]

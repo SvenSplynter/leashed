@@ -9,7 +9,7 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Product, ProductToReturnDto>()
-                .ForMember(d => d.Type, o => o.MapFrom(s => s.Type.Name))
+                .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                 .ForMember(d => d.Material, o => o.MapFrom(s => s.Material.Name))
                 .ForMember(d => d.Color, o => o.MapFrom(s => s.Material.Color.Name))
                 .ForMember(d => d.Size, o => o.MapFrom(s => s.Material.Thickness))
@@ -24,6 +24,20 @@ namespace API.Helpers
                 .ForMember(d => d.Keychain, o => o.MapFrom(s => s.Keychain.Name))
                 .ForMember(d => d.EndCaps, o => o.MapFrom(s => s.EndCaps.Name))
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
+
+            CreateMap<Material, MaterialToReturnDto>()
+                .ForMember(d => d.MaterialType, o => o.MapFrom(s => s.MaterialType.Name))
+                .ForMember(d => d.Color, o => o.MapFrom(s => s.Color.Name));
+
+            CreateMap<StockMaterial, StockmaterialToReturnDto>()
+                .ForMember(d => d.Material, o => o.MapFrom(s => s.Material.Name))
+                .ForMember(d => d.Color, o => o.MapFrom(s => s.Material.Color.Name))
+                .ForMember(d => d.Size, o => o.MapFrom(s => s.Material.Thickness));
+
+            CreateMap<Hardware, HardwareToReturnDto>()
+                .ForMember(d => d.HardwareType, o => o.MapFrom(s => s.HardwareType.Name))
+                .ForMember(d => d.HardwareMaterial, o => o.MapFrom(s => s.HardwareMaterial.Name))
+                .ForMember(d => d.HardwareColor, o => o.MapFrom(s => s.HardwareColor.Name));
         }
     }
 }

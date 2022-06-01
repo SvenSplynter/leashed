@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "Name": "Not Applicable",
-    "MaterialType": "None",
+    "MaterialTypeId": 1,
     "Thickness": 10,
     "ColorId": 1,
     "PricePerMeter": 0
@@ -10,7 +10,7 @@
   {
     "Id": 2,
     "Name": "PPM rond 10 mm multi rood",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 2,
     "PricePerMeter": 0
@@ -18,7 +18,7 @@
   {
     "Id": 3,
     "Name": "PPM rond 10 mm multi mintgroen",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 3,
     "PricePerMeter": 0
@@ -26,7 +26,7 @@
   {
     "Id": 4,
     "Name": "PPM rond 10 mm pastel swirl",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 4,
     "PricePerMeter": 0
@@ -34,7 +34,7 @@
   {
     "Id": 5,
     "Name": "PPM rond 10 mm multi kaki bruin",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 5,
     "PricePerMeter": 0
@@ -42,7 +42,7 @@
   {
     "Id": 6,
     "Name": "PPM rond 10 mm sky blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 9,
     "PricePerMeter": 0
@@ -50,7 +50,7 @@
   {
     "Id": 7,
     "Name": "PPM rond 10 mm ocean blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 8,
     "PricePerMeter": 0
@@ -58,7 +58,7 @@
   {
     "Id": 8,
     "Name": "PPM rond 10 mm confetti",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 6,
     "PricePerMeter": 0
@@ -66,7 +66,7 @@
   {
     "Id": 9,
     "Name": "PPM rond 10 mm brown",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 26,
     "PricePerMeter": 0
@@ -74,7 +74,7 @@
   {
     "Id": 10,
     "Name": "PPM rond 10 mm silver grey",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 22,
     "PricePerMeter": 0
@@ -82,7 +82,7 @@
   {
     "Id": 11,
     "Name": "PPM rond 10 mm red velvet",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 10,
     "ColorId": 30,
     "PricePerMeter": 0
@@ -90,7 +90,7 @@
   {
     "Id": 12,
     "Name": "PPM rond 8 mm sea storm",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 15,
     "PricePerMeter": 0
@@ -98,7 +98,7 @@
   {
     "Id": 13,
     "Name": "PPM rond 8 mm greece",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 14,
     "PricePerMeter": 0
@@ -106,7 +106,7 @@
   {
     "Id": 14,
     "Name": "PPM rond 8 mm red camo",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 32,
     "PricePerMeter": 0
@@ -114,7 +114,7 @@
   {
     "Id": 15,
     "Name": "PPM rond 8 mm cranberry",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 31,
     "PricePerMeter": 0
@@ -122,7 +122,7 @@
   {
     "Id": 16,
     "Name": "PPM rond 8 mm black",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 24,
     "PricePerMeter": 0
@@ -130,7 +130,7 @@
   {
     "Id": 17,
     "Name": "PPM rond 8 mm black premium",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 25,
     "PricePerMeter": 0
@@ -138,7 +138,7 @@
   {
     "Id": 18,
     "Name": "PPM rond 8 mm dark blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 12,
     "PricePerMeter": 0
@@ -146,7 +146,7 @@
   {
     "Id": 19,
     "Name": "PPM rond 8 mm brown",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 26,
     "PricePerMeter": 0
@@ -154,7 +154,7 @@
   {
     "Id": 20,
     "Name": "PPM rond 8 mm flower power",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 7,
     "PricePerMeter": 0
@@ -162,7 +162,7 @@
   {
     "Id": 21,
     "Name": "PPM rond 8 mm aqua premium",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 47,
     "PricePerMeter": 0
@@ -170,7 +170,7 @@
   {
     "Id": 22,
     "Name": "PPM rond 8 mm neon pink",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 8,
     "ColorId": 33,
     "PricePerMeter": 0
@@ -178,7 +178,7 @@
   {
     "Id": 23,
     "Name": "PPM rond 6 mm sea storm",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 15,
     "PricePerMeter": 0
@@ -186,7 +186,7 @@
   {
     "Id": 24,
     "Name": "PPM rond 6 mm greece",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 14,
     "PricePerMeter": 0
@@ -194,7 +194,7 @@
   {
     "Id": 25,
     "Name": "PPM rond 6 mm black",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 24,
     "PricePerMeter": 0
@@ -202,7 +202,7 @@
   {
     "Id": 26,
     "Name": "PPM rond 6 mm flower power",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 7,
     "PricePerMeter": 0
@@ -210,7 +210,7 @@
   {
     "Id": 27,
     "Name": "PPM rond 6 mm sky blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 9,
     "PricePerMeter": 0
@@ -218,7 +218,7 @@
   {
     "Id": 28,
     "Name": "PPM rond 6 mm canary yellow",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 39,
     "PricePerMeter": 0
@@ -226,7 +226,7 @@
   {
     "Id": 29,
     "Name": "PPM rond 6 mm red",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 29,
     "PricePerMeter": 0
@@ -234,7 +234,7 @@
   {
     "Id": 30,
     "Name": "PPM rond 6 mm neon orange",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 41,
     "PricePerMeter": 0
@@ -242,7 +242,7 @@
   {
     "Id": 31,
     "Name": "PPM rond 6 mm dark green",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 48,
     "PricePerMeter": 0
@@ -250,7 +250,7 @@
   {
     "Id": 32,
     "Name": "PPM rond 6 mm aubergine",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 28,
     "PricePerMeter": 0
@@ -258,7 +258,7 @@
   {
     "Id": 33,
     "Name": "PPM rond 6 mm cream",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 16,
     "PricePerMeter": 0
@@ -266,7 +266,7 @@
   {
     "Id": 34,
     "Name": "PPM rond 6 mm beige",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 17,
     "PricePerMeter": 0
@@ -274,7 +274,7 @@
   {
     "Id": 35,
     "Name": "PPM rond 6 mm granny pink",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 34,
     "PricePerMeter": 0
@@ -282,7 +282,7 @@
   {
     "Id": 36,
     "Name": "PPM rond 6 mm silver grey",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 22,
     "PricePerMeter": 0
@@ -290,7 +290,7 @@
   {
     "Id": 37,
     "Name": "PPM rond 6 mm baby boy",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 13,
     "PricePerMeter": 0
@@ -298,7 +298,7 @@
   {
     "Id": 38,
     "Name": "PPM rond 6 mm camouflage",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 51,
     "PricePerMeter": 0
@@ -306,7 +306,7 @@
   {
     "Id": 39,
     "Name": "PPM rond 6 mm abyss",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 50,
     "PricePerMeter": 0
@@ -314,7 +314,7 @@
   {
     "Id": 40,
     "Name": "PPM rond 6 mm white nylon",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 20,
     "PricePerMeter": 0
@@ -322,7 +322,7 @@
   {
     "Id": 41,
     "Name": "PPM rond 6 mm apple green",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 43,
     "PricePerMeter": 0
@@ -330,7 +330,7 @@
   {
     "Id": 42,
     "Name": "PPM rond 6 mm ocean blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 8,
     "PricePerMeter": 0
@@ -338,7 +338,7 @@
   {
     "Id": 43,
     "Name": "PPM rond 6 mm lilac",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 37,
     "PricePerMeter": 0
@@ -346,7 +346,7 @@
   {
     "Id": 44,
     "Name": "PPM rond 6 mm gold",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 18,
     "PricePerMeter": 0
@@ -354,7 +354,7 @@
   {
     "Id": 45,
     "Name": "PPM rond 6 mm turquoise & pistaches stripes",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 49,
     "PricePerMeter": 0
@@ -362,7 +362,7 @@
   {
     "Id": 46,
     "Name": "PPM rond 6 mm aubergine & neon pink",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 6,
     "ColorId": 36,
     "PricePerMeter": 0
@@ -370,7 +370,7 @@
   {
     "Id": 47,
     "Name": "PPM rond 2 mm neon orange",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 41,
     "PricePerMeter": 0
@@ -378,7 +378,7 @@
   {
     "Id": 48,
     "Name": "PPM rond 2 mm neon yellow",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 40,
     "PricePerMeter": 0
@@ -386,7 +386,7 @@
   {
     "Id": 49,
     "Name": "PPM rond 2 mm bright mint",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 42,
     "PricePerMeter": 0
@@ -394,7 +394,7 @@
   {
     "Id": 50,
     "Name": "PPM rond 2 mm sea green",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 46,
     "PricePerMeter": 0
@@ -402,7 +402,7 @@
   {
     "Id": 51,
     "Name": "PPM rond 2 mm apple green",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 43,
     "PricePerMeter": 0
@@ -410,7 +410,7 @@
   {
     "Id": 52,
     "Name": "PPM rond 2 mm turquoise",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 44,
     "PricePerMeter": 0
@@ -418,7 +418,7 @@
   {
     "Id": 53,
     "Name": "PPM rond 2 mm granny pink",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 34,
     "PricePerMeter": 0
@@ -426,7 +426,7 @@
   {
     "Id": 54,
     "Name": "PPM rond 2 mm acid purple",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 38,
     "PricePerMeter": 0
@@ -434,7 +434,7 @@
   {
     "Id": 55,
     "Name": "PPM rond 2 mm neon pink",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 33,
     "PricePerMeter": 0
@@ -442,7 +442,7 @@
   {
     "Id": 56,
     "Name": "PPM rond 2 mm white",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 21,
     "PricePerMeter": 0
@@ -450,7 +450,7 @@
   {
     "Id": 57,
     "Name": "PPM rond 2 mm charcoal grey",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 23,
     "PricePerMeter": 0
@@ -458,7 +458,7 @@
   {
     "Id": 58,
     "Name": "PPM rond 2 mm brown",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 26,
     "PricePerMeter": 0
@@ -466,7 +466,7 @@
   {
     "Id": 59,
     "Name": "PPM rond 2 mm silver grey",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 22,
     "PricePerMeter": 0
@@ -474,7 +474,7 @@
   {
     "Id": 60,
     "Name": "PPM rond 2 mm black",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 24,
     "PricePerMeter": 0
@@ -482,7 +482,7 @@
   {
     "Id": 61,
     "Name": "PPM rond 2 mm beige",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 17,
     "PricePerMeter": 0
@@ -490,7 +490,7 @@
   {
     "Id": 62,
     "Name": "PPM rond 2 mm shiny gold",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 19,
     "PricePerMeter": 0
@@ -498,7 +498,7 @@
   {
     "Id": 63,
     "Name": "PPM rond 2 mm mint",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 45,
     "PricePerMeter": 0
@@ -506,7 +506,7 @@
   {
     "Id": 64,
     "Name": "PPM rond 2 mm dark green",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 48,
     "PricePerMeter": 0
@@ -514,7 +514,7 @@
   {
     "Id": 65,
     "Name": "PPM rond 2 mm electric blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 11,
     "PricePerMeter": 0
@@ -522,7 +522,7 @@
   {
     "Id": 66,
     "Name": "PPM rond 2 mm metallic royal blue",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 10,
     "PricePerMeter": 0
@@ -530,7 +530,7 @@
   {
     "Id": 67,
     "Name": "PPM rond 2 mm fuchsia",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 35,
     "PricePerMeter": 0
@@ -538,7 +538,7 @@
   {
     "Id": 68,
     "Name": "PPM rond 2 mm roasted aubergine",
-    "MaterialType": "PPM rond",
+    "MaterialTypeId": 2,
     "Thickness": 2,
     "ColorId": 27,
     "PricePerMeter": 0

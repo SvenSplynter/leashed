@@ -7,7 +7,7 @@ namespace Core.Specifications
         public ProductWithFiltersForCountSpecification(ProductSpecParams productParams)
             : base(x =>
                 (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) && 
-                (!productParams.TypeId.HasValue || x.TypeId == productParams.TypeId) &&
+                (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId) &&
                 (!productParams.Size.HasValue || x.Material.Thickness == productParams.Size)
             )
         {

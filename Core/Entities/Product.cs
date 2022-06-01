@@ -3,8 +3,9 @@ namespace Core.Entities
     public class Product : BaseEntity
     {
         public string Name { get; set; }
-        public ProductType Type { get; set; }
-        public int TypeId { get; set; }
+        public ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; }
+        public decimal Length { get; set; }
         public Material Material { get; set; }
         public int MaterialId { get; set; }
         public string Finishing { get; set; }
@@ -31,5 +32,6 @@ namespace Core.Entities
         public decimal Price { get; set; }
         public int InStock { get; set; }
         public string PictureUrl { get; set; }
+        public string LastUpdated { get; set; }
     }
 }
