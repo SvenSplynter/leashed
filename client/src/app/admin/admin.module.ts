@@ -49,6 +49,16 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ProductTypesComponent } from './product-types/product-types.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { MaterialsComponent } from './materials/materials.component';
+import { StockMaterialsComponent } from './stock-materials/stock-materials.component';
+import { ColorsComponent } from './colors/colors.component';
+import { HardwaresComponent } from './hardwares/hardwares.component';
+import { HardwareMaterialsComponent } from './hardware-materials/hardware-materials.component';
+import { HardwareTypesComponent } from './hardware-types/hardware-types.component';
+import { MaterialTypesComponent } from './material-types/material-types.component';
+import { HardwareColorsComponent } from './hardware-colors/hardware-colors.component';
+import { ViewProductTypeComponent } from './product-types/view-product-type/view-product-type.component';
+import { ViewMaterialComponent } from './materials/view-material/view-material.component';
 
 
 @NgModule({
@@ -57,7 +67,17 @@ import { FormsModule } from '@angular/forms';
     TopNavComponent,
     AdminComponent,
     AdminHomeComponent,
-    ProductTypesComponent
+    ProductTypesComponent,
+    MaterialsComponent,
+    StockMaterialsComponent,
+    ColorsComponent,
+    HardwaresComponent,
+    HardwareMaterialsComponent,
+    HardwareTypesComponent,
+    MaterialTypesComponent,
+    HardwareColorsComponent,
+    ViewProductTypeComponent,
+    ViewMaterialComponent
   ],
   imports: [
     CommonModule,

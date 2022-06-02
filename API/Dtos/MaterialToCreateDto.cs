@@ -1,14 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace API.Dtos
 {
-    public class MaterialToReturnDto
+    public class MaterialToCreateDto
     {
-        public int Id { get; set; }         
+        [Required]
         public string Name { get; set; }
-        public string MaterialType { get; set; }
+        [Required]
         public int MaterialTypeId { get; set; }
+        [Required]
         public int Thickness { get; set; }
-        public string Color { get; set; }
+        [Required]
         public int ColorId { get; set; }
+        [Required]
         public decimal PricePerMeter { get; set; }
     }
 }

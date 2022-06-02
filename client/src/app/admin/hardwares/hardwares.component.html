@@ -1,0 +1,62 @@
+<div class="page-header">
+    <div class="container">
+        <h1>Hardware</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs mt-2">
+        <div class="col-xs-12">
+            <input type="text" class="search-input" placeholder="Zoek hardware"
+            #input
+            (keyup)="filterHardwares($event)"
+            >
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hardwareType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.hardwareType}} </td>
+            </ng-container>
+            <ng-container matColumnDef="size">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afmeting </th>
+                <td mat-cell *matCellDef="let element"> {{element.size}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hardwareMaterial">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Materiaal </th>
+                <td mat-cell *matCellDef="let element"> {{element.hardwareMaterial}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hardwareColor">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Kleur </th>
+                <td mat-cell *matCellDef="let element"> {{element.hardwareColor}} </td>
+            </ng-container>
+            <ng-container matColumnDef="inStock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
+            </ng-container>
+            <ng-container matColumnDef="ordered">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Besteld </th>
+                <td mat-cell *matCellDef="let element"> {{element.ordered}} </td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Prijs (€) </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+        </table>
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>

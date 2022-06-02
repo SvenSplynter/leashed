@@ -32,5 +32,11 @@ namespace Core.Specifications
                 }
             }
         }
+
+        public MaterialsWithColorsAndTypesSpecification(int id) : base(x => x.Id == id)
+        {
+            AddInclude(x => x.MaterialType);
+            AddInclude(x => x.Color);
+        }
     }
 }

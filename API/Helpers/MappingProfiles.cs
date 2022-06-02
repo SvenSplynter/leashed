@@ -38,6 +38,8 @@ namespace API.Helpers
                 .ForMember(d => d.HardwareType, o => o.MapFrom(s => s.HardwareType.Name))
                 .ForMember(d => d.HardwareMaterial, o => o.MapFrom(s => s.HardwareMaterial.Name))
                 .ForMember(d => d.HardwareColor, o => o.MapFrom(s => s.HardwareColor.Name));
+
+            CreateMap<MaterialToCreateDto, Material>();
         }
     }
 }

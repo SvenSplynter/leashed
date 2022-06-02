@@ -1,0 +1,54 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { IHardware } from 'src/app/models/hardware';
+import { HardwareParams } from 'src/app/models/hardwareParams';
+import { HardwareService } from './hardware.service';
+
+@Component({
+  selector: 'app-hardwares',
+  templateUrl: './hardwares.component.html',
+  styleUrls: ['./hardwares.component.scss']
+})
+export class HardwaresComponent implements OnInit {
+  @ViewChild(MatPaginator, {static: false}) matPaginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) matSort: MatSort;
+  hardwares: IHardware[];
+  hardwareParams = new HardwareParams();
+
+  columnsToDisplay: string[] = ['id', 'name', 'hardwareType', 'size', 'hardwareMaterial', 'hardwareColor', 'inStock', 'ordered', 'price'];
+  dataSource: MatTableDataSource<IHardware> = new MatTableDataSource<IHardware>();
+
+
+  constructor(private hardwareService: HardwareService) { }
+
+  ngOnInit(): void {
+    this.getHardwares();
+  }
+
+  getHardwares() {
+    this.hardwareService.getHardwares(this.hardwareParams).subscribe(response => {
+      console.log(response);
+      this.hardwares = response.data;
+      this.dataSource = new MatTableDataSource<IHardware>(this.hardwares);
+      if(this.matPaginator) {
+        this.dataSource.paginator = this.matPaginator;
+      }
+
+      if(this.matSort) {
+        this.dataSource.sort = this.matSort;
+      }
+      console.log(this.hardwares);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  filterHardwares(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(filterValue);
+  }
+
+}

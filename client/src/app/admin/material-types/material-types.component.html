@@ -1,14 +1,14 @@
 <div class="page-header">
     <div class="container">
-        <h1>Product Types</h1>
+        <h1>Materiaal Types</h1>
     </div>
 </div>
 <div class="container">
     <div class="row end-xs mt-2">
         <div class="col-xs-12">
-            <input type="text" class="search-input" placeholder="Zoek product types"
+            <input type="text" class="search-input" placeholder="Zoek materiaal types"
             #input
-            (keyup)="filterProductTypes($event)"
+            (keyup)="filterMaterialTypes($event)"
             >
         </div>
     </div>
@@ -24,17 +24,9 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
-            <ng-container matColumnDef="abbreviation">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afkorting </th>
-                <td mat-cell *matCellDef="let element"> {{element.abbreviation}} </td>
-            </ng-container>
-            <ng-container matColumnDef="edit">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-                <td mat-cell *matCellDef="let element">
-                    <a [routerLink]="['/producttypes/', element.id]">
-                        <mat-icon>edit</mat-icon>
-                    </a>
-                </td>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Omschrijving </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -15,7 +15,7 @@ export class ProductTypesComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   productTypes: IProductType[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'abbreviation'];
+  displayedColumns: string[] = ['id', 'name', 'abbreviation', 'edit'];
   dataSource: MatTableDataSource<IProductType> = new MatTableDataSource<IProductType>();
 
   constructor(private productService: ProductService) { }

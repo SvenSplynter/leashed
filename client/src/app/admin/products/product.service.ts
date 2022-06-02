@@ -50,4 +50,8 @@ export class ProductService {
   getProductTypes(): Observable<IProductType[]> {
     return this.http.get<IProductType[]>(this.baseUrl + 'products/producttypes');
   }
+
+  getProductType(productTypeId: string): Observable<IProductType> {
+    return this.http.get<IProductType>(this.baseUrl + 'products/producttypes/' + productTypeId);
+  }
 }

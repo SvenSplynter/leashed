@@ -24,12 +24,6 @@ export class ProductsComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   products: IProduct[];
   productParams = new ProductParams();
-  totalCount: number;
-  sortOptions = [
-    { name: 'Alphabetical', value: 'name' },
-    { name: 'Price: Low to High', value: 'priceAsc' },
-    { name: 'Price: High to Low', value: 'priceDesc' }
-  ];
 
   columnsToDisplay: string[] = ['name', 'productType', 'length', 'material', 'finishing', 'finishMaterial1', 'finishMaterial2', 'finishMaterial3', 'hook1', 'hook2', 'oRing1', 'oRing2', 'stopBar', 'keychain', 'endCaps', 'price', 'inStock', 'pictureUrl', 'lastUpdated'];
   dataSource: MatTableDataSource<IProduct> = new MatTableDataSource<IProduct>();
@@ -45,9 +39,6 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts(this.productParams).subscribe(response => {
       console.log(response);
       this.products = response.data;
-      this.productParams.pageNumber = response.pageIndex;
-      this.productParams.pageSize = response.pageSize;
-      this.totalCount = response.count;
       this.dataSource = new MatTableDataSource<IProduct>(this.products);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;

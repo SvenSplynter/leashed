@@ -1,0 +1,79 @@
+<div class="page-header">
+    <div class="container">
+        <h1>Materiaal Detail</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/materials" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <div class="row" *ngIf="material">
+        <div class="col-xs-12">
+            <form productTypeDetailsForm="ngForm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Naam</mat-label>
+                            <input type="text" matInput [(ngModel)]="material.name" name="name">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Materiaal Type</mat-label>
+                            <mat-select [(ngModel)]="material.materialTypeId" name="materialType">
+                                <mat-option *ngFor="let materialType of materialTypes" [value]="materialType.id">
+                                    {{materialType.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Dikte</mat-label>
+                            <input type="text" matInput [(ngModel)]="material.thickness" name="thickness">
+                        </mat-form-field>
+                    </div>                  
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Kleur</mat-label>
+                            <mat-select [(ngModel)]="material.colorId" name="materialColor">
+                                <mat-option *ngFor="let materialColor of materialColors" [value]="materialColor.id">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            {{materialColor.name}}
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <img src="{{materialColor.pictureUrl}}" alt="" style="width: 40px;">
+                                        </div>
+                                    </div>
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>  
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Prijs per meter</mat-label>
+                            <input type="text" matInput [(ngModel)]="material.pricePerMeter" name="pricePerMeter" class="right-align">
+                            <span matPrefix>€&nbsp;</span>
+                        </mat-form-field>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button mat-raised-button color="primary" (click)="onUpdate()">Bewaren</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-6"></div>
+    </div>
+</div>

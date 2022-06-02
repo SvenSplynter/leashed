@@ -1,0 +1,42 @@
+<div class="page-header">
+    <div class="container">
+        <h1>Product Type Detail</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/producttypes" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <div class="row" *ngIf="productType">
+        <div class="col-xs-12">
+            <form productTypeDetailsForm="ngForm">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Id</mat-label>
+                            <input type="text" matInput [(ngModel)]="productType.id" name="id">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Naam</mat-label>
+                            <input type="text" matInput [(ngModel)]="productType.name" name="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Afkorting</mat-label>
+                            <input type="text" matInput [(ngModel)]="productType.abbreviation" name="abbreviation">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-6"></div>
+    </div>
+</div>
