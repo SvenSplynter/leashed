@@ -1,0 +1,114 @@
+<div class="page-header">
+    <div class="container">
+        <h1>Products</h1>
+    </div>
+</div>
+<div class="table-container">
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows="">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Naam </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.productType}} </td>
+            </ng-container>
+            <ng-container matColumnDef="length">
+                <th mat-header-cell *matHeaderCellDef> Lengte </th>
+                <td mat-cell *matCellDef="let element"> {{element.length}} </td>
+            </ng-container>
+            <ng-container matColumnDef="material">
+                <th mat-header-cell *matHeaderCellDef> Materiaal </th>
+                <td mat-cell *matCellDef="let element"> {{element.material}} </td>
+            </ng-container>
+            <ng-container matColumnDef="finish">
+                <th mat-header-cell *matHeaderCellDef> Afw </th>
+                <td mat-cell *matCellDef="let element"> {{element.finishing}} </td>
+            </ng-container>
+            <ng-container matColumnDef="finish1">
+                <th mat-header-cell *matHeaderCellDef> Afw 1 </th>
+                <td mat-cell *matCellDef="let element"> {{element.finishMaterial1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="finish2">
+                <th mat-header-cell *matHeaderCellDef> Afw 2 </th>
+                <td mat-cell *matCellDef="let element"> {{element.finishMaterial2}} </td>
+            </ng-container>
+            <ng-container matColumnDef="finish3">
+                <th mat-header-cell *matHeaderCellDef> Afw 3 </th>
+                <td mat-cell *matCellDef="let element"> {{element.finishMaterial3}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hook1">
+                <th mat-header-cell *matHeaderCellDef> Hook 1 </th>
+                <td mat-cell *matCellDef="let element"> {{element.hook1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hook2">
+                <th mat-header-cell *matHeaderCellDef> Hook 2 </th>
+                <td mat-cell *matCellDef="let element"> {{element.hook2}} </td>
+            </ng-container>
+            <ng-container matColumnDef="oring1">
+                <th mat-header-cell *matHeaderCellDef> O-Ring 1 </th>
+                <td mat-cell *matCellDef="let element"> {{element.oRing1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="oring2">
+                <th mat-header-cell *matHeaderCellDef> O-Ring 2 </th>
+                <td mat-cell *matCellDef="let element"> {{element.oRing2}} </td>
+            </ng-container>
+            <ng-container matColumnDef="stopbar">
+                <th mat-header-cell *matHeaderCellDef> Stop Bar </th>
+                <td mat-cell *matCellDef="let element"> {{element.stopBar}} </td>
+            </ng-container>
+            <ng-container matColumnDef="keychain">
+                <th mat-header-cell *matHeaderCellDef> Key Chain </th>
+                <td mat-cell *matCellDef="let element"> {{element.keychain}} </td>
+            </ng-container>
+            <ng-container matColumnDef="endcaps">
+                <th mat-header-cell *matHeaderCellDef> End Caps </th>
+                <td mat-cell *matCellDef="let element"> {{element.endCaps}} </td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Prijs </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+            <ng-container matColumnDef="instock">
+                <th mat-header-cell *matHeaderCellDef> Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
+            </ng-container>
+            <ng-container matColumnDef="pictureUrl">
+                <th mat-header-cell *matHeaderCellDef> Foto </th>
+                <td mat-cell *matCellDef="let element">
+                    <img src="{{element.pictureUrl}}" alt="" style="height: 50px;">
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="lastUpdated">
+                <th mat-header-cell *matHeaderCellDef> Datum </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastUpdated | date:'dd-MMM-yy'}} </td>
+            </ng-container>
+            <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                    <div class="example-element-detail"
+                        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <div class="example-element-description">
+                            <img src="{{element.pictureUrl}}" alt="" style="height: 200px;">
+                        </div>
+                        <div class="example-element-diagram">
+                            <div class="product-name"> {{element.name}} </div>
+                            <div class="example-element-symbol"> {{element.color}} </div>
+                            <div class="example-element-symbol"> €{{element.price}} </div>
+                            <div class="example-element-symbol"> Voorraad: {{element.inStock}} </div>
+                        </div>
+
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+        </table>
+    </div>
+</div>

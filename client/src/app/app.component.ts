@@ -9,18 +9,10 @@ import { IProduct } from './models/product';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Leashed';
-  products: IProduct[];
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/products').subscribe(
-      (response: IPagination) => {
-        this.products = response.data;
-      }, error => {
-        console.log(error);
-      }
-    );
+
   }
 }

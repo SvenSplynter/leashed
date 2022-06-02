@@ -6,14 +6,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+import { ShopComponent } from './shop/shop.component';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
