@@ -4,18 +4,28 @@
     </div>
 </div>
 <div class="container">
-    <div class="div">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="row end-xs mt-2">
+        <div class="col-xs-12">
+            <input type="text" class="search-input" placeholder="Zoek product types"
+            #input
+            (keyup)="filterProductTypes($event)"
+            >
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="div mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource">
             <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Naam </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
             <ng-container matColumnDef="abbreviation">
-                <th mat-header-cell *matHeaderCellDef> Afkorting </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afkorting </th>
                 <td mat-cell *matCellDef="let element"> {{element.abbreviation}} </td>
             </ng-container>
 

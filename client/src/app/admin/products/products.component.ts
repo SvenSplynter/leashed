@@ -1,5 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IProduct } from 'src/app/models/product';
 import { ProductParams } from 'src/app/models/productParams';
@@ -18,6 +20,8 @@ import { ProductService } from './product.service';
   ],
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild(MatPaginator, {static: false}) matPaginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) matSort: MatSort;
   products: IProduct[];
   productParams = new ProductParams();
   totalCount: number;
@@ -27,7 +31,7 @@ export class ProductsComponent implements OnInit {
     { name: 'Price: High to Low', value: 'priceDesc' }
   ];
 
-  columnsToDisplay: string[] = ['name', 'type', 'length', 'material', 'finish', 'finish1', 'finish2', 'finish3', 'hook1', 'hook2', 'oring1', 'oring2', 'stopbar', 'keychain', 'endcaps', 'price', 'instock', 'pictureUrl', 'lastUpdated'];
+  columnsToDisplay: string[] = ['name', 'productType', 'length', 'material', 'finishing', 'finishMaterial1', 'finishMaterial2', 'finishMaterial3', 'hook1', 'hook2', 'oRing1', 'oRing2', 'stopBar', 'keychain', 'endCaps', 'price', 'inStock', 'pictureUrl', 'lastUpdated'];
   dataSource: MatTableDataSource<IProduct> = new MatTableDataSource<IProduct>();
   expandedElement: IProduct | null;
 
@@ -45,10 +49,23 @@ export class ProductsComponent implements OnInit {
       this.productParams.pageSize = response.pageSize;
       this.totalCount = response.count;
       this.dataSource = new MatTableDataSource<IProduct>(this.products);
+      if(this.matPaginator) {
+        this.dataSource.paginator = this.matPaginator;
+      }
+
+      if(this.matSort) {
+        this.dataSource.sort = this.matSort;
+      }
       console.log(this.products);
     }, error => {
       console.log(error);
     });
+  }
+
+  filterProducts(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(filterValue);
   }
 
 }

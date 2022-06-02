@@ -4,74 +4,84 @@
     </div>
 </div>
 <div class="table-container">
-    <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows="">
+    <div class="row end-xs mt-2">
+        <div class="col-xs-12">
+            <input type="text" class="search-input" placeholder="Zoek producten"
+            #input
+            (keyup)="filterProducts($event)"
+            >
+        </div>
+    </div>
+</div>
+<div class="table-container">
+    <div class="mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource" multiTemplateDataRows="">
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Naam </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
-            <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef> Type </th>
+            <ng-container matColumnDef="productType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
                 <td mat-cell *matCellDef="let element"> {{element.productType}} </td>
             </ng-container>
             <ng-container matColumnDef="length">
-                <th mat-header-cell *matHeaderCellDef> Lengte </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lengte </th>
                 <td mat-cell *matCellDef="let element"> {{element.length}} </td>
             </ng-container>
             <ng-container matColumnDef="material">
-                <th mat-header-cell *matHeaderCellDef> Materiaal </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Materiaal </th>
                 <td mat-cell *matCellDef="let element"> {{element.material}} </td>
             </ng-container>
-            <ng-container matColumnDef="finish">
-                <th mat-header-cell *matHeaderCellDef> Afw </th>
+            <ng-container matColumnDef="finishing">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afw </th>
                 <td mat-cell *matCellDef="let element"> {{element.finishing}} </td>
             </ng-container>
-            <ng-container matColumnDef="finish1">
-                <th mat-header-cell *matHeaderCellDef> Afw 1 </th>
+            <ng-container matColumnDef="finishMaterial1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afw 1 </th>
                 <td mat-cell *matCellDef="let element"> {{element.finishMaterial1}} </td>
             </ng-container>
-            <ng-container matColumnDef="finish2">
-                <th mat-header-cell *matHeaderCellDef> Afw 2 </th>
+            <ng-container matColumnDef="finishMaterial2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afw 2 </th>
                 <td mat-cell *matCellDef="let element"> {{element.finishMaterial2}} </td>
             </ng-container>
-            <ng-container matColumnDef="finish3">
-                <th mat-header-cell *matHeaderCellDef> Afw 3 </th>
+            <ng-container matColumnDef="finishMaterial3">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Afw 3 </th>
                 <td mat-cell *matCellDef="let element"> {{element.finishMaterial3}} </td>
             </ng-container>
             <ng-container matColumnDef="hook1">
-                <th mat-header-cell *matHeaderCellDef> Hook 1 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hook 1 </th>
                 <td mat-cell *matCellDef="let element"> {{element.hook1}} </td>
             </ng-container>
             <ng-container matColumnDef="hook2">
-                <th mat-header-cell *matHeaderCellDef> Hook 2 </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hook 2 </th>
                 <td mat-cell *matCellDef="let element"> {{element.hook2}} </td>
             </ng-container>
-            <ng-container matColumnDef="oring1">
-                <th mat-header-cell *matHeaderCellDef> O-Ring 1 </th>
+            <ng-container matColumnDef="oRing1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> O-Ring 1 </th>
                 <td mat-cell *matCellDef="let element"> {{element.oRing1}} </td>
             </ng-container>
-            <ng-container matColumnDef="oring2">
-                <th mat-header-cell *matHeaderCellDef> O-Ring 2 </th>
+            <ng-container matColumnDef="oRing2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> O-Ring 2 </th>
                 <td mat-cell *matCellDef="let element"> {{element.oRing2}} </td>
             </ng-container>
-            <ng-container matColumnDef="stopbar">
-                <th mat-header-cell *matHeaderCellDef> Stop Bar </th>
+            <ng-container matColumnDef="stopBar">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stop Bar </th>
                 <td mat-cell *matCellDef="let element"> {{element.stopBar}} </td>
             </ng-container>
             <ng-container matColumnDef="keychain">
-                <th mat-header-cell *matHeaderCellDef> Key Chain </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Key Chain </th>
                 <td mat-cell *matCellDef="let element"> {{element.keychain}} </td>
             </ng-container>
-            <ng-container matColumnDef="endcaps">
-                <th mat-header-cell *matHeaderCellDef> End Caps </th>
+            <ng-container matColumnDef="endCaps">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Caps </th>
                 <td mat-cell *matCellDef="let element"> {{element.endCaps}} </td>
             </ng-container>
             <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef> Prijs </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Prijs </th>
                 <td mat-cell *matCellDef="let element"> {{element.price}} </td>
             </ng-container>
-            <ng-container matColumnDef="instock">
-                <th mat-header-cell *matHeaderCellDef> Stock </th>
+            <ng-container matColumnDef="inStock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
                 <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
             </ng-container>
             <ng-container matColumnDef="pictureUrl">
@@ -81,7 +91,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="lastUpdated">
-                <th mat-header-cell *matHeaderCellDef> Datum </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum </th>
                 <td mat-cell *matCellDef="let element"> {{element.lastUpdated | date:'dd-MMM-yy'}} </td>
             </ng-container>
             <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -110,5 +120,7 @@
             </tr>
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+        </mat-paginator>
     </div>
 </div>

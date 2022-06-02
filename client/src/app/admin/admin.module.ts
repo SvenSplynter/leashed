@@ -42,11 +42,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 // Material Data tables
-import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ProductTypesComponent } from './product-types/product-types.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { ProductTypesComponent } from './product-types/product-types.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AdminRoutingModule,
     MatAutocompleteModule,
     MatCheckboxModule,
@@ -94,7 +98,7 @@ import { ProductTypesComponent } from './product-types/product-types.component';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule,
+    MatTableModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

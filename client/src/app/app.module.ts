@@ -8,6 +8,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { ShopComponent } from './shop/shop.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
     AppRoutingModule,
     AdminRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
