@@ -2,7 +2,7 @@ namespace Core.Specifications
 {
     public class MaterialSpecParams
     {
-        private const int MaxPageSize = 50;
+        private const int MaxPageSize = 1000;
         public int PageIndex { get; set; } = 1;
         
         private int _pageSize = 6;
@@ -14,6 +14,7 @@ namespace Core.Specifications
 
         public int? MaterialTypeId { get; set; }
         public int? ColorId { get; set; }
+        public int? Thickness { get; set; }
         public string Sort { get; set; }
         private string _search;
         public string Search 

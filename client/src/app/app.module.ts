@@ -10,6 +10,11 @@ import { ShopComponent } from './shop/shop.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,9 +29,13 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

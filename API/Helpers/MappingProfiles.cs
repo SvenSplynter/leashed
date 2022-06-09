@@ -40,6 +40,10 @@ namespace API.Helpers
                 .ForMember(d => d.HardwareColor, o => o.MapFrom(s => s.HardwareColor.Name));
 
             CreateMap<MaterialToCreateDto, Material>();
+            CreateMap<ProductToCreateDto, Product>();
+
+            CreateMap<Photo, PhotoToReturnDto>()
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<PhotoUrlResolver>());
         }
     }
 }

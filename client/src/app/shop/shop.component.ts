@@ -18,6 +18,7 @@ export class ShopComponent implements OnInit {
     this.http.get('https://localhost:5001/api/products').subscribe(
       (response: IPagination) => {
         this.products = response.data;
+        console.log(this.products);
       }, error => {
         console.log(error);
       }

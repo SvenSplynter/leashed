@@ -1,0 +1,284 @@
+<div class="page-header">
+    <div class="container">
+        <h1>{{header}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/products" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <mat-tab-group>
+        <mat-tab label="Wijzig product">
+            <div class="row mt-4" *ngIf="product">
+                <div class="col-xs-8">
+                    <form #productDetailsForm="ngForm">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Naam</mat-label>
+                                    <input type="text" matInput [(ngModel)]="product.name" name="name" #name="ngModel" required>
+                                    <mat-error>Naam is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Product Type</mat-label>
+                                    <mat-select [(ngModel)]="product.productTypeId" name="productTypeId" #productTypeId="ngModel" required>
+                                        <mat-option *ngFor="let productType of productTypes" [value]="productType.id">
+                                            {{productType.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Product type is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Lengte (m)</mat-label>
+                                    <input type="number" matInput [(ngModel)]="product.length" name="length" #length="ngModel" required>
+                                    <mat-error>Product type is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Materiaal</mat-label>
+                                    <mat-select [(ngModel)]="product.materialId" name="materialId" #materialId="ngModel" required>
+                                        <mat-option *ngFor="let material of materials" [value]="material.id">
+                                            {{material.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Materiaal is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Afwerking</mat-label>
+                                    <input type="text" matInput [(ngModel)]="product.finishing" name="finishing" #finishing="ngModel" required>
+                                    <mat-error>Afwerking is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Afwerking 1</mat-label>
+                                    <mat-select [(ngModel)]="product.finishMaterial1Id" name="finishMaterial1Id" #finishMaterial1Id="ngModel" required>
+                                        <mat-option *ngFor="let finish1 of finishMaterials" [value]="finish1.id">
+                                            {{finish1.color}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Afwerking 1 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Afwerking 2</mat-label>
+                                    <mat-select [(ngModel)]="product.finishMaterial2Id" name="finishMaterial2Id" #finishMaterial2Id="ngModel" required>
+                                        <mat-option *ngFor="let finish2 of finishMaterials" [value]="finish2.id">
+                                            {{finish2.color}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Afwerking 2 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Afwerking 3</mat-label>
+                                    <mat-select [(ngModel)]="product.finishMaterial3Id" name="finishMaterial3Id" #finishMaterial3Id="ngModel" required>
+                                        <mat-option *ngFor="let finish3 of finishMaterials" [value]="finish3.id">
+                                            {{finish3.color}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Afwerking 3 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Hook 1</mat-label>
+                                    <mat-select [(ngModel)]="product.hook1Id" name="hook1Id" #hook1Id="ngModel" required>
+                                        <mat-option *ngFor="let hook1 of hooks" [value]="hook1.id">
+                                            {{hook1.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Hook 1 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Hook 2</mat-label>
+                                    <mat-select [(ngModel)]="product.hook2Id" name="hook2Id" #hook2Id="ngModel" required>
+                                        <mat-option *ngFor="let hook2 of hooks" [value]="hook2.id">
+                                            {{hook2.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Hook 2 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>O-Ring 1</mat-label>
+                                    <mat-select [(ngModel)]="product.oRing1Id" name="oRing1Id" #oRing1Id="ngModel" required>
+                                        <mat-option *ngFor="let oRing1 of oRings" [value]="oRing1.id">
+                                            {{oRing1.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>O-Ring 1 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>O-Ring 2</mat-label>
+                                    <mat-select [(ngModel)]="product.oRing2Id" name="oRing2Id" #name="ngModel" required>
+                                        <mat-option *ngFor="let oRing2 of oRings" [value]="oRing2.id">
+                                            {{oRing2.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>O-Ring 2 is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Stop Bar</mat-label>
+                                    <mat-select [(ngModel)]="product.stopBarId" name="stopBarId" #stopBarId="ngModel" required>
+                                        <mat-option *ngFor="let stopBar of stopBars" [value]="stopBar.id">
+                                            {{stopBar.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Stop Bar is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Sleutelring</mat-label>
+                                    <mat-select [(ngModel)]="product.keychainId" name="keychainId" #keychainId="ngModel" required>
+                                        <mat-option *ngFor="let keychain of keychains" [value]="keychain.id">
+                                            {{keychain.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Sleutelring is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>End Caps</mat-label>
+                                    <mat-select [(ngModel)]="product.endCapsId" name="endCapsId" #endCapsId="ngModel" required>
+                                        <mat-option *ngFor="let endCaps of endCaps" [value]="endCaps.id">
+                                            {{endCaps.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>End Caps is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Prijs</mat-label>
+                                    <input type="text" matInput [(ngModel)]="product.price" name="price" #price="ngModel"
+                                        class="right-align" required>
+                                    <span matPrefix>€&nbsp;</span>
+                                    <mat-error>Prijs is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Stock</mat-label>
+                                    <input type="number" matInput [(ngModel)]="product.inStock" name="inStock" #inStock="ngModel" required>
+                                    <mat-error>Stock is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Laatst gewijzigd</mat-label>
+                                    <input matInput [matDatepicker]="picker" [(ngModel)]="product.lastUpdated"
+                                        name="lastUpdated" #lastupdate="ngModel" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-error>Laatst gewijzigd is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-xs-12">
+                                <div class="row" *ngIf="!isNewProduct">
+                                    <div class="col">
+                                        <button mat-raised-button color="primary" (click)="onUpdate(productDetailsForm.value)">Bewaren</button>
+                                    </div>
+                                    <div class="col end-xs">
+                                        <button mat-raised-button color="warn" (click)="openDialog()">Verwijderen</button>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" *ngIf="isNewProduct">
+                                    <button mat-raised-button color="primary" (click)="onAdd()">Toevoegen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row" *ngFor="let productImage of product.photos">
+                        <div class="col-xs-12">
+                            <img src="{{productImage.pictureUrl}}" alt="leiband image" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Wijzig foto's">
+            <div *ngIf="!addPhotoMode">
+                <div class="d-flex justify-content-between mb-3 mt-4" *ngIf="product">
+                    <h3>Product foto's</h3>
+                    <button mat-raised-button color="primary" (click)="addPhotoModeToggle()">
+                        Voeg nieuwe foto toe
+                    </button>
+                </div>
+                <div class="row" style="padding: 0;" *ngIf="product">
+                    <div *ngIf="productToChange">
+                        <div class="col-3" *ngFor="let productImage of productToChange.photos">
+                            <mat-card>
+                                <img mat-card-image src="{{productImage.pictureUrl}}">
+                                <mat-card-actions>
+                                    <button mat-raised-button color="primary" [disabled]="productImage.isMain" (click)="setMainPhoto(productImage.id)">
+                                        Maak Primair
+                                    </button>
+                                    <button mat-raised-button [disabled]="productImage.isMain" (click)="deletePhoto(productImage.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="addPhotoMode">
+                <div class="d-flex justify-content-between mb-3 mt-4">
+                    <h3>Annuleer</h3>
+                    <button mat-raised-button color="warn" (click)="addPhotoModeToggle()">Cancel</button>
+                </div>
+                <div class="progress form-group" *ngIf="progress > 0">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width.%]="progress">
+                        {{progress}}%
+                    </div>
+                </div>
+                <app-photo-widget (addFile)="uploadFile($event)"></app-photo-widget>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

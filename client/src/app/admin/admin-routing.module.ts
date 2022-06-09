@@ -13,12 +13,14 @@ import { ViewMaterialComponent } from './materials/view-material/view-material.c
 import { ProductTypesComponent } from './product-types/product-types.component';
 import { ViewProductTypeComponent } from './product-types/view-product-type/view-product-type.component';
 import { ProductsComponent } from './products/products.component';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 import { StockMaterialsComponent } from './stock-materials/stock-materials.component';
 
 const routes: Routes = [
   {path: '', component: AdminComponent, children: [
     {path: 'home', component: AdminHomeComponent},
     {path: 'products', component: ProductsComponent},
+    {path: 'products/:id', component: ViewProductComponent},
     {path: 'producttypes', component: ProductTypesComponent},
     {path: 'producttypes/:id', component: ViewProductTypeComponent},
     {path: 'materials', component: MaterialsComponent},

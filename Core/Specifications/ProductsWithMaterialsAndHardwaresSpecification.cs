@@ -27,6 +27,7 @@ namespace Core.Specifications
             AddInclude(x => x.Keychain);
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);
+            AddInclude(x => x.Photos);
             AddOrderBy(x => x.Name);
             ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
 
@@ -65,6 +66,7 @@ namespace Core.Specifications
             AddInclude(x => x.Keychain);
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);
+            AddInclude(x => x.Photos);
         }
     }
 }

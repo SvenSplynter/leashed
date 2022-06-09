@@ -8,7 +8,9 @@ namespace Core.Specifications
             : base(x =>
                 (string.IsNullOrEmpty(materialParams.Search) || x.Name.ToLower().Contains(materialParams.Search)) &&
                 (!materialParams.MaterialTypeId.HasValue || x.MaterialTypeId == materialParams.MaterialTypeId) &&
-                (!materialParams.ColorId.HasValue || x.ColorId == materialParams.ColorId)
+                (!materialParams.ColorId.HasValue || x.ColorId == materialParams.ColorId) &&
+                (!materialParams.Thickness.HasValue || x.Thickness == materialParams.Thickness)
+
             )
         {
             AddInclude(x => x.MaterialType);

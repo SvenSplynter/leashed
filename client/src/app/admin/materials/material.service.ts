@@ -2,13 +2,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { IColor } from 'src/app/models/color';
-import { IMaterial } from 'src/app/models/material';
+import { IMaterial, MaterialFormValues } from 'src/app/models/material';
 import { IMaterialPagination } from 'src/app/models/materialPagination';
 import { MaterialParams } from 'src/app/models/materialParams';
 import { IMaterialType } from 'src/app/models/materialType';
 import { IStockMaterialPagination } from 'src/app/models/stockMaterialPagination';
 import { StockMaterialParams } from 'src/app/models/stockMaterialParams';
-import { UpdateMaterialRequest } from 'src/app/models/update-material-request';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +26,10 @@ export class MaterialService {
 
     if(materialParams.colorId !== 0) {
       params = params.append('colorId', materialParams.colorId.toString());
+    }
+
+    if(materialParams.thickness !== 0) {
+      params = params.append('thickness', materialParams.thickness.toString());
     }
 
     if(materialParams.search) {
@@ -88,15 +91,7 @@ export class MaterialService {
     return this.http.get<IColor[]>(this.baseUrl + 'products/colors');
   }
 
-  updateMaterial(materialId: number, materialRequest: IMaterial): Observable<IMaterial> {
-    const updateMaterialRequest: UpdateMaterialRequest = {
-      name: materialRequest.name,
-      materialTypeId: materialRequest.materialTypeId,
-      thickness: materialRequest.thickness,
-      colorId: materialRequest.colorId,
-      pricePerMeter: materialRequest.pricePerMeter
-    }
-
-    return this.http.put<IMaterial>(this.baseUrl + 'products/materials/' + materialId, updateMaterialRequest);
+  updateMaterial(materialId: number, material: MaterialFormValues) {
+    return this.http.put(this.baseUrl + 'products/materials/' + materialId, material);
   }
 }

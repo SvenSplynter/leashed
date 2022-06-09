@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { ProductsComponent } from './products/products.component';
@@ -59,6 +59,11 @@ import { MaterialTypesComponent } from './material-types/material-types.componen
 import { HardwareColorsComponent } from './hardware-colors/hardware-colors.component';
 import { ViewProductTypeComponent } from './product-types/view-product-type/view-product-type.component';
 import { ViewMaterialComponent } from './materials/view-material/view-material.component';
+import { ViewProductComponent } from './products/view-product/view-product.component';
+import { PhotoWidgetComponent } from './shared/photo-widget/photo-widget.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { DeleteDialogComponent } from './products/view-product/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -77,7 +82,10 @@ import { ViewMaterialComponent } from './materials/view-material/view-material.c
     MaterialTypesComponent,
     HardwareColorsComponent,
     ViewProductTypeComponent,
-    ViewMaterialComponent
+    ViewMaterialComponent,
+    ViewProductComponent,
+    PhotoWidgetComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,
@@ -118,10 +126,13 @@ import { ViewMaterialComponent } from './materials/view-material/view-material.c
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    NgxDropzoneModule,
+    ImageCropperModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
+  providers: [DatePipe]
 })
 export class AdminModule { }

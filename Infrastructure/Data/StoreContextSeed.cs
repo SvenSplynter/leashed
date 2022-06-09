@@ -140,11 +140,34 @@ namespace Infrastructure.Data
                 {
                     var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
 
-                    var products = JsonSerializer.Deserialize<List<Product>>(productsData);
+                    var products = JsonSerializer.Deserialize<List<ProductSeedModel>>(productsData);
 
                     foreach (var item in products)
                     {
-                        context.Products.Add(item);
+                        var pictureFileName = item.PictureUrl.Substring(16);
+                        var product = new Product
+                        {
+                            Name = item.Name,
+                            ProductTypeId = item.ProductTypeId,
+                            Length = item.Length,
+                            MaterialId = item.MaterialId,
+                            Finishing = item.Finishing,
+                            FinishMaterial1Id = item.FinishMaterial1Id,
+                            FinishMaterial2Id = item.FinishMaterial2Id,
+                            FinishMaterial3Id = item.FinishMaterial3Id,
+                            Hook1Id = item.Hook1Id,
+                            Hook2Id = item.Hook2Id,
+                            ORing1Id = item.ORing1Id,
+                            ORing2Id = item.ORing2Id,
+                            StopBarId = item.StopBarId,
+                            KeychainId = item.KeychainId,
+                            EndCapsId = item.EndCapsId,
+                            Price = item.Price,
+                            InStock = item.InStock,
+                            LastUpdated = item.LastUpdated
+                        };
+                        product.AddPhoto(item.PictureUrl, pictureFileName);
+                        context.Products.Add(product);
                     }
 
                     await context.SaveChangesAsync();

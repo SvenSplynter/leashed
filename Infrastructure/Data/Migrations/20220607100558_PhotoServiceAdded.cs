@@ -4,7 +4,7 @@
 
 namespace Infrastructure.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class PhotoServiceAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -183,7 +183,6 @@ namespace Infrastructure.Data.Migrations
                     EndCapsId = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     InStock = table.Column<int>(type: "INTEGER", nullable: false),
-                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
                     LastUpdated = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -284,6 +283,28 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Photo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    FileName = table.Column<string>(type: "TEXT", nullable: true),
+                    IsMain = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Photo_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Hardwares_HardwareColorId",
                 table: "Hardwares",
@@ -308,6 +329,11 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Materials_MaterialTypeId",
                 table: "Materials",
                 column: "MaterialTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photo_ProductId",
+                table: "Photo",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_EndCapsId",
@@ -378,19 +404,22 @@ namespace Infrastructure.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Photo");
 
             migrationBuilder.DropTable(
                 name: "StockMaterials");
 
             migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
                 name: "Hardwares");
 
             migrationBuilder.DropTable(
-                name: "ProductTypes");
+                name: "Materials");
 
             migrationBuilder.DropTable(
-                name: "Materials");
+                name: "ProductTypes");
 
             migrationBuilder.DropTable(
                 name: "HardwareColors");
