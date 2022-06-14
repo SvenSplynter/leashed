@@ -6,5 +6,6 @@ namespace Core.Entities
         public Material Material { get; set; }
         public int MaterialId { get; set; }
         public decimal MeterInStock { get; set; }
+        public ColorPhoto[] photos { get; set; }
     }
 }

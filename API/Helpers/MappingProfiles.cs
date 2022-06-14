@@ -27,11 +27,17 @@ namespace API.Helpers
 
             CreateMap<Material, MaterialToReturnDto>()
                 .ForMember(d => d.MaterialType, o => o.MapFrom(s => s.MaterialType.Name))
-                .ForMember(d => d.Color, o => o.MapFrom(s => s.Color.Name));
+                .ForMember(d => d.MainColor, o => o.MapFrom(s => s.Color.MainColor))
+                .ForMember(d => d.Color, o => o.MapFrom(s => s.Color.Name))
+                .ForMember(d => d.photos, o => o.MapFrom(s => s.Color.Photos))
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<MaterialUrlResolver>());
 
             CreateMap<StockMaterial, StockmaterialToReturnDto>()
                 .ForMember(d => d.Material, o => o.MapFrom(s => s.Material.Name))
+                .ForMember(d => d.MainColor, o => o.MapFrom(s => s.Material.Color.MainColor))
                 .ForMember(d => d.Color, o => o.MapFrom(s => s.Material.Color.Name))
+                .ForMember(d => d.photos, o => o.MapFrom(s => s.Material.Color.Photos))
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<StockMaterialUrlResolver>())
                 .ForMember(d => d.Size, o => o.MapFrom(s => s.Material.Thickness));
 
             CreateMap<Hardware, HardwareToReturnDto>()
@@ -40,10 +46,25 @@ namespace API.Helpers
                 .ForMember(d => d.HardwareColor, o => o.MapFrom(s => s.HardwareColor.Name));
 
             CreateMap<MaterialToCreateDto, Material>();
+            CreateMap<HardwareToCreateDto, Hardware>();
+            CreateMap<HardwareTypeToCreateDto, HardwareType>();
+            CreateMap<HardwareMaterialToCreateDto, HardwareMaterial>();
+            CreateMap<HardwareColorToCreateDto, HardwareColor>();
+            CreateMap<StockMaterialToCreateDto, StockMaterial>();
             CreateMap<ProductToCreateDto, Product>();
+            CreateMap<ProductTypeToCreateDto, ProductType>();
+            CreateMap<MaterialTypeToCreateDto, MaterialType>();
 
             CreateMap<Photo, PhotoToReturnDto>()
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<PhotoUrlResolver>());
+
+            CreateMap<ColorPhoto, PhotoToReturnDto>()
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<ColorPhotoUrlResolver>());
+
+            CreateMap<Color, ColorToReturnDto>()
+                .ForMember(d => d.PictureUrl, o => o.MapFrom<ColorUrlResolver>());
+
+            CreateMap<ColorToCreateDto, Color>();
         }
     }
 }

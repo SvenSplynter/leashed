@@ -15,7 +15,9 @@ namespace Core.Specifications
         {
             AddInclude(x => x.MaterialType);
             AddInclude(x => x.Color);
+            AddInclude(x => x.Color.Photos);
             AddOrderBy(x => x.Name);
+            AddOrderBy(x => x.Color.MainColor);
             ApplyPaging(materialParams.PageSize * (materialParams.PageIndex - 1), materialParams.PageSize);
 
             if(!string.IsNullOrEmpty(materialParams.Sort)) 
@@ -28,6 +30,12 @@ namespace Core.Specifications
                     case "thicknessDesc":
                         AddOrderByDescending(p => p.Thickness);
                         break;
+                    case "mainColorAsc":
+                        AddOrderBy(p => p.Color.MainColor);
+                        break;
+                    case "mainColorDesc":
+                        AddOrderByDescending(p => p.Color.MainColor);
+                        break;
                     default:
                         AddOrderBy(n => n.Name);
                         break;
@@ -39,6 +47,7 @@ namespace Core.Specifications
         {
             AddInclude(x => x.MaterialType);
             AddInclude(x => x.Color);
+            AddInclude(x => x.Color.Photos);
         }
     }
 }

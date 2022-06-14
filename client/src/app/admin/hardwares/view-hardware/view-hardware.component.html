@@ -1,0 +1,112 @@
+<div class="page-header">
+    <div class="container">
+        <h1>{{header}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/hardwares" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <div class="row" *ngIf="hardware">
+        <div class="col-xs-12">
+            <form #hardwareDetailsForm="ngForm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Naam</mat-label>
+                            <input type="text" matInput [(ngModel)]="hardware.name" name="name" #name="ngModel" required>
+                            <mat-error>Naam is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Hardware type</mat-label>
+                            <mat-select [(ngModel)]="hardware.hardwareTypeId" name="hardwareTypeId" #hardwareTypeId="ngModel" required>
+                                <mat-option *ngFor="let hardwareType of hardwareTypes" [value]="hardwareType.id">
+                                    {{hardwareType.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>Hardware type is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div> 
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Dikte</mat-label>
+                            <input type="text" matInput [(ngModel)]="hardware.size" name="size" #size="ngModel" required>
+                            <mat-error>Dikte is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Hardware materiaal</mat-label>
+                            <mat-select [(ngModel)]="hardware.hardwareMaterialId" name="hardwareMaterialId" #hardwareMaterialId="ngModel" required>
+                                <mat-option *ngFor="let hardwareMaterial of hardwareMaterials" [value]="hardwareMaterial.id">
+                                    {{hardwareMaterial.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>Hardware materiaal is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div> 
+                    <div class="col-xs-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Hardware kleur</mat-label>
+                            <mat-select [(ngModel)]="hardware.hardwareColorId" name="hardwareColorId" #hardwareColorId="ngModel" required>
+                                <mat-option *ngFor="let hardwareColor of hardwareColors" [value]="hardwareColor.id">
+                                    {{hardwareColor.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>Hardware kleur is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>In stock</mat-label>
+                            <input type="number" matInput [(ngModel)]="hardware.inStock" name="inStock" #inStock="ngModel" required>
+                            <mat-error>In stock is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>   
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Besteld</mat-label>
+                            <input type="number" matInput [(ngModel)]="hardware.ordered" name="ordered" #ordered="ngModel" required>
+                            <mat-error>Besteld is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>   
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Prijs</mat-label>
+                            <input type="text" matInput [(ngModel)]="hardware.price" name="price" #price="ngModel" required>
+                            <mat-error>Prijs is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>   
+                </div>
+                <div class="row mb-4">
+                    <div class="col-xs-12">
+                        <div class="row" *ngIf="!isNewHardware">
+                            <div class="col">
+                                <button mat-raised-button color="primary" (click)="onUpdate(hardwareDetailsForm.value)">Bewaren</button>
+                            </div>
+                            <div class="col end-xs">
+                                <button mat-raised-button color="warn" (click)="openDialog()">Verwijderen</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="isNewHardware">
+                            <button mat-raised-button color="primary" (click)="onAdd()">Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

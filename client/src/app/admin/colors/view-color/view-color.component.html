@@ -1,0 +1,107 @@
+<div class="page-header">
+    <div class="container">
+        <h1>{{header}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/colors" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <mat-tab-group>
+        <mat-tab label="Wijzig kleur">
+            <div class="row mt-4" *ngIf="color">
+                <div class="col-xs-8">
+                    <form #colorDetailsForm="ngForm">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Naam</mat-label>
+                                    <input type="text" matInput [(ngModel)]="color.name" name="name" #name="ngModel" required>
+                                    <mat-error>Naam is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Hoofdkleur</mat-label>
+                                    <input type="text" matInput [(ngModel)]="color.mainColor" name="mainColor" #mainColor="ngModel" required>
+                                    <mat-error>Hoofdkleur is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-xs-12">
+                                <div class="row" *ngIf="!isNewColor">
+                                    <div class="col">
+                                        <button mat-raised-button color="primary" (click)="onUpdate(colorDetailsForm.value)">Bewaren</button>
+                                    </div>
+                                    <div class="col end-xs">
+                                        <button mat-raised-button color="warn" (click)="openDialog()">Verwijderen</button>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" *ngIf="isNewColor">
+                                    <button mat-raised-button color="primary" (click)="onAdd()">Toevoegen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row" *ngFor="let colorImage of color.photos">
+                        <div class="col-xs-12">
+                            <img src="{{colorImage.pictureUrl}}" alt="foto kleur" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Wijzig foto's">
+            <div *ngIf="!addPhotoMode">
+                <div class="d-flex justify-content-between mb-3 mt-4" *ngIf="color">
+                    <h3>Kleur foto's</h3>
+                    <button mat-raised-button color="primary" (click)="addPhotoModeToggle()">
+                        Voeg nieuwe foto toe
+                    </button>
+                </div>
+                <div class="row" style="padding: 0;" *ngIf="color">
+                    <div *ngIf="colorToChange">
+                        <div class="col-3" *ngFor="let colorImage of colorToChange.photos">
+                            <mat-card>
+                                <img mat-card-image src="{{colorImage.pictureUrl}}">
+                                <mat-card-actions>
+                                    <button mat-raised-button color="primary" [disabled]="colorImage.isMain" (click)="setMainPhoto(colorImage.id)">
+                                        Maak Primair
+                                    </button>
+                                    <button mat-raised-button [disabled]="colorImage.isMain" (click)="deletePhoto(colorImage.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="addPhotoMode">
+                <div class="d-flex justify-content-between mb-3 mt-4">
+                    <h3>Annuleer</h3>
+                    <button mat-raised-button color="warn" (click)="addPhotoModeToggle()">Cancel</button>
+                </div>
+                <div class="progress form-group" *ngIf="progress > 0">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width.%]="progress">
+                        {{progress}}%
+                    </div>
+                </div>
+                <app-photo-widget (addFile)="uploadFile($event)"></app-photo-widget>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

@@ -18,11 +18,18 @@
                 <div class="col-xs-8">
                     <form #productDetailsForm="ngForm">
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-xs-8">
                                 <mat-form-field appearance="outline">
                                     <mat-label>Naam</mat-label>
                                     <input type="text" matInput [(ngModel)]="product.name" name="name" #name="ngModel" required>
                                     <mat-error>Naam is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Lengte (m)</mat-label>
+                                    <input type="number" matInput [(ngModel)]="product.length" name="length" #length="ngModel" required>
+                                    <mat-error>Product type is een verplicht veld</mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -40,31 +47,32 @@
                             </div>
                             <div class="col-xs-6">
                                 <mat-form-field appearance="outline">
-                                    <mat-label>Lengte (m)</mat-label>
-                                    <input type="number" matInput [(ngModel)]="product.length" name="length" #length="ngModel" required>
-                                    <mat-error>Product type is een verplicht veld</mat-error>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <mat-form-field appearance="outline">
-                                    <mat-label>Materiaal</mat-label>
-                                    <mat-select [(ngModel)]="product.materialId" name="materialId" #materialId="ngModel" required>
-                                        <mat-option *ngFor="let material of materials" [value]="material.id">
-                                            {{material.name}}
-                                        </mat-option>
-                                    </mat-select>
-                                    <mat-error>Materiaal is een verplicht veld</mat-error>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-xs-6">
-                                <mat-form-field appearance="outline">
                                     <mat-label>Afwerking</mat-label>
                                     <input type="text" matInput [(ngModel)]="product.finishing" name="finishing" #finishing="ngModel" required>
                                     <mat-error>Afwerking is een verplicht veld</mat-error>
                                 </mat-form-field>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Materiaal</mat-label>
+                                    <mat-select [(ngModel)]="product.materialId" name="materialId" #materialId="ngModel" required>
+                                        <mat-option *ngFor="let material of materials" [value]="material.id">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    {{material.name}}
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <img src="{{material.pictureUrl}}" alt="" style="width: 40px;">
+                                                </div>
+                                            </div>
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Materiaal is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-xs-4">

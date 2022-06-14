@@ -2,7 +2,7 @@ namespace Core.Specifications
 {
     public class StockmaterialSpecParams
     {
-        private const int MaxPageSize = 50;
+        private const int MaxPageSize = 1000;
         public int PageIndex { get; set; } = 1;
         
         private int _pageSize = 6;

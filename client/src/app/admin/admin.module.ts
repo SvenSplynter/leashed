@@ -63,7 +63,14 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
 import { PhotoWidgetComponent } from './shared/photo-widget/photo-widget.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { DeleteDialogComponent } from './products/view-product/delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
+import { ViewStockMaterialsComponent } from './stock-materials/view-stock-materials/view-stock-materials.component';
+import { ViewMaterialTypeComponent } from './material-types/view-material-type/view-material-type.component';
+import { ViewColorComponent } from './colors/view-color/view-color.component';
+import { ViewHardwareComponent } from './hardwares/view-hardware/view-hardware.component';
+import { ViewHardwareTypeComponent } from './hardware-types/view-hardware-type/view-hardware-type.component';
+import { ViewHardwareMaterialComponent } from './hardware-materials/view-hardware-material/view-hardware-material.component';
+import { ViewHardwareColorComponent } from './hardware-colors/view-hardware-color/view-hardware-color.component';
 
 
 @NgModule({
@@ -85,7 +92,14 @@ import { DeleteDialogComponent } from './products/view-product/delete-dialog/del
     ViewMaterialComponent,
     ViewProductComponent,
     PhotoWidgetComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ViewStockMaterialsComponent,
+    ViewMaterialTypeComponent,
+    ViewColorComponent,
+    ViewHardwareComponent,
+    ViewHardwareTypeComponent,
+    ViewHardwareMaterialComponent,
+    ViewHardwareColorComponent
   ],
   imports: [
     CommonModule,

@@ -4,7 +4,7 @@
 
 namespace Infrastructure.Data.Migrations
 {
-    public partial class PhotoServiceAdded : Migration
+    public partial class ColorPhotoEntityAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -305,6 +305,55 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ColorPhoto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    FileName = table.Column<string>(type: "TEXT", nullable: true),
+                    IsMain = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ColorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MaterialId = table.Column<int>(type: "INTEGER", nullable: true),
+                    StockMaterialId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ColorPhoto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ColorPhoto_Colors_ColorId",
+                        column: x => x.ColorId,
+                        principalTable: "Colors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ColorPhoto_Materials_MaterialId",
+                        column: x => x.MaterialId,
+                        principalTable: "Materials",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ColorPhoto_StockMaterials_StockMaterialId",
+                        column: x => x.StockMaterialId,
+                        principalTable: "StockMaterials",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ColorPhoto_ColorId",
+                table: "ColorPhoto",
+                column: "ColorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ColorPhoto_MaterialId",
+                table: "ColorPhoto",
+                column: "MaterialId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ColorPhoto_StockMaterialId",
+                table: "ColorPhoto",
+                column: "StockMaterialId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Hardwares_HardwareColorId",
                 table: "Hardwares",
@@ -403,6 +452,9 @@ namespace Infrastructure.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ColorPhoto");
+
             migrationBuilder.DropTable(
                 name: "Photo");
 

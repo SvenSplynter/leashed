@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace API.Dtos
 {
     public class ProductToReturnDto

@@ -15,7 +15,7 @@ export class MaterialTypesComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   materialTypes: IMaterialType[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'description'];
+  displayedColumns: string[] = ['name', 'description', 'edit'];
   dataSource: MatTableDataSource<IMaterialType> = new MatTableDataSource<IMaterialType>();
 
   constructor(private materialService: MaterialService) { }
@@ -27,7 +27,6 @@ export class MaterialTypesComponent implements OnInit {
   getMaterialTypes() {
     this.materialService.getMaterialTypes().subscribe(async (response) => {
       this.materialTypes = response;
-      console.log(this.materialTypes);
       this.dataSource = new MatTableDataSource<IMaterialType>(this.materialTypes);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;

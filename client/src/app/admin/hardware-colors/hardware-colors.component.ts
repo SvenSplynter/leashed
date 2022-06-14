@@ -15,7 +15,7 @@ export class HardwareColorsComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   hardwareColors: IHardwareColor[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'description'];
+  displayedColumns: string[] = ['name', 'description', 'edit'];
   dataSource: MatTableDataSource<IHardwareColor> = new MatTableDataSource<IHardwareColor>();
 
   constructor(private hardwareService: HardwareService) { }
@@ -27,7 +27,6 @@ export class HardwareColorsComponent implements OnInit {
   getHardwareColors() {
     this.hardwareService.getHardwareColors().subscribe(async (response) => {
       this.hardwareColors = response;
-      console.log(this.hardwareColors);
       this.dataSource = new MatTableDataSource<IHardwareColor>(this.hardwareColors);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;

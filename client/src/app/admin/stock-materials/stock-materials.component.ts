@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -9,7 +10,14 @@ import { MaterialService } from '../materials/material.service';
 @Component({
   selector: 'app-stock-materials',
   templateUrl: './stock-materials.component.html',
-  styleUrls: ['./stock-materials.component.scss']
+  styleUrls: ['./stock-materials.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class StockMaterialsComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false}) matPaginator: MatPaginator;
@@ -17,7 +25,7 @@ export class StockMaterialsComponent implements OnInit {
   stockMaterials: IStockMaterial[];
   stockMaterialParams = new StockMaterialParams();
 
-  columnsToDisplay: string[] = ['id', 'name', 'material', 'color', 'size', 'meterInStock'];
+  columnsToDisplay: string[] = ['name', 'material', 'size', 'mainColor', 'color', 'pictureUrl', 'meterInStock', 'edit'];
   dataSource: MatTableDataSource<IStockMaterial> = new MatTableDataSource<IStockMaterial>();
 
 

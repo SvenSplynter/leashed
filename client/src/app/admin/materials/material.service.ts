@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { IColor } from 'src/app/models/color';
+import { ColorFormValues, IColor } from 'src/app/models/color';
 import { IMaterial, MaterialFormValues } from 'src/app/models/material';
 import { IMaterialPagination } from 'src/app/models/materialPagination';
 import { MaterialParams } from 'src/app/models/materialParams';
-import { IMaterialType } from 'src/app/models/materialType';
+import { IMaterialType, MaterialTypeFormValues } from 'src/app/models/materialType';
+import { IStockMaterial, StockMaterialFormValues } from 'src/app/models/stockMaterial';
 import { IStockMaterialPagination } from 'src/app/models/stockMaterialPagination';
 import { StockMaterialParams } from 'src/app/models/stockMaterialParams';
 
@@ -82,16 +83,90 @@ export class MaterialService {
         })
       );
   }
+  
+  getStockMaterial(id: string): Observable<IStockMaterial> {
+    return this.http.get<IStockMaterial>(this.baseUrl + 'products/stockmaterials/' + id);
+  }
+
 
   getMaterialTypes(): Observable<IMaterialType[]> {
     return this.http.get<IMaterialType[]>(this.baseUrl + 'products/materialtypes');
+  }
+
+  getMaterialType(materialTypeId: string) {
+    return this.http.get<IMaterialType>(this.baseUrl + 'products/materialtypes/' + materialTypeId);
   }
 
   getColors(): Observable<IColor[]> {
     return this.http.get<IColor[]>(this.baseUrl + 'products/colors');
   }
 
+  getColor(id: string) {
+    return this.http.get<IColor>(this.baseUrl + 'products/colors/' + id);
+  }
+
+  updateColor(colorId: number, color: ColorFormValues) {
+    return this.http.put(this.baseUrl + 'products/colors/' + colorId, color);
+  }
+
+  deleteColor(colorId: number) {
+    return this.http.delete(this.baseUrl + 'products/colors/' + colorId);
+  }
+
+  addColor(color: ColorFormValues) {
+    return this.http.post(this.baseUrl + 'products/colors', color);
+  }
+
+  uploadImage(file: File, id: number) {
+    const formData = new FormData();
+    formData.append('photo', file, 'image.png');
+    return this.http.put(this.baseUrl + 'products/colors/' + id + '/photo', formData, {
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
+
+  deleteColorPhoto(photoId: number, colorId: number){
+    return this.http.delete(this.baseUrl + 'products/colors/' + colorId + '/photo/' + photoId);
+  }
+
+  setMainPhoto(photoId: number, colorId: number) {
+    return this.http.post(this.baseUrl + 'products/colors/' + colorId + '/photo/' + photoId, {});
+  }
+
   updateMaterial(materialId: number, material: MaterialFormValues) {
     return this.http.put(this.baseUrl + 'products/materials/' + materialId, material);
+  }
+
+  deleteMaterial(materialId: number) {
+    return this.http.delete(this.baseUrl + 'products/materials/' + materialId);
+  }
+
+  addMaterial(material: MaterialFormValues) {
+    return this.http.post(this.baseUrl + 'products/materials', material);
+  }
+
+  updateStockMaterial(stockmaterialId: number, stockmaterial: StockMaterialFormValues) {
+    return this.http.put(this.baseUrl + 'products/stockmaterials/' + stockmaterialId, stockmaterial);
+  }
+
+  deleteStockMaterial(stockmaterialId: number) {
+    return this.http.delete(this.baseUrl + 'products/stockmaterials/' + stockmaterialId);
+  }
+
+  addStockMaterial(stockmaterial: StockMaterialFormValues) {
+    return this.http.post(this.baseUrl + 'products/stockmaterials', stockmaterial);
+  }
+
+  updateMaterialType(materialTypeId: number, materialType: MaterialTypeFormValues) {
+    return this.http.put(this.baseUrl + 'products/materialtypes/' + materialTypeId, materialType);
+  }
+
+  deleteMaterialType(materialTypeId: number) {
+    return this.http.delete(this.baseUrl + 'products/materialtypes/' + materialTypeId);
+  }
+
+  addMaterialType(materialType: MaterialTypeFormValues) {
+    return this.http.post(this.baseUrl + 'products/materialtypes', materialType);
   }
 }

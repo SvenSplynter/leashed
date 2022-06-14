@@ -1,6 +1,6 @@
 <div class="page-header">
     <div class="container">
-        <h1>Product Type Detail</h1>
+        <h1>{{header}}</h1>
     </div>
 </div>
 <div class="container">
@@ -14,29 +14,39 @@
     </div>
     <div class="row" *ngIf="productType">
         <div class="col-xs-12">
-            <form productTypeDetailsForm="ngForm">
+            <form #productTypeDetailsForm="ngForm">
                 <div class="row">
                     <div class="col-xs-4">
                         <mat-form-field appearance="outline">
-                            <mat-label>Id</mat-label>
-                            <input type="text" matInput [(ngModel)]="productType.id" name="id">
-                        </mat-form-field>
-                    </div>
-                    <div class="col-xs-4">
-                        <mat-form-field appearance="outline">
                             <mat-label>Naam</mat-label>
-                            <input type="text" matInput [(ngModel)]="productType.name" name="name">
+                            <input type="text" matInput [(ngModel)]="productType.name" name="name" #name="ngModel" required>
+                            <mat-error>Naam is een verplicht veld</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-xs-4">
                         <mat-form-field appearance="outline">
                             <mat-label>Afkorting</mat-label>
-                            <input type="text" matInput [(ngModel)]="productType.abbreviation" name="abbreviation">
+                            <input type="text" matInput [(ngModel)]="productType.abbreviation" name="abbreviation" #abbreviation="ngModel" required>
+                            <mat-error>Afkorting is een verplicht veld</mat-error>
                         </mat-form-field>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-xs-12">
+                        <div class="row" *ngIf="!isNewProductType">
+                            <div class="col">
+                                <button mat-raised-button color="primary" (click)="onUpdate(productTypeDetailsForm.value)">Bewaren</button>
+                            </div>
+                            <div class="col end-xs">
+                                <button mat-raised-button color="warn" (click)="openDialog()">Verwijderen</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="isNewProductType">
+                            <button mat-raised-button color="primary" (click)="onAdd()">Toevoegen</button>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-xs-6"></div>
     </div>
 </div>

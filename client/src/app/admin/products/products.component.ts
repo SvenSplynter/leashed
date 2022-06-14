@@ -37,7 +37,6 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.productService.getProducts(this.productParams).subscribe(response => {
-      console.log(response);
       this.products = response.data;
       this.dataSource = new MatTableDataSource<IProduct>(this.products);
       if(this.matPaginator) {
@@ -47,7 +46,6 @@ export class ProductsComponent implements OnInit {
       if(this.matSort) {
         this.dataSource.sort = this.matSort;
       }
-      console.log(this.products);
     }, error => {
       console.log(error);
     });
@@ -56,7 +54,6 @@ export class ProductsComponent implements OnInit {
   filterProducts(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(filterValue);
   }
 
 }

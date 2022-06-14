@@ -4,12 +4,15 @@ export interface IMaterial {
     materialType: string;
     materialTypeId: number;
     thickness: number;
+    mainColor: string;
     color: string;
+    pictureUrl: string;
     colorId: number;
     pricePerMeter: number;
 }
 
 export interface IMaterialToCreate {
+    name: string;
     materialTypeId: number;
     thickness: number;
     colorId: number;
@@ -17,6 +20,7 @@ export interface IMaterialToCreate {
 }
 
 export class MaterialFormValues implements IMaterialToCreate {
+    name: string;
     materialTypeId: number;
     thickness = 0;
     colorId: number;

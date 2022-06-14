@@ -6,20 +6,15 @@
 <div class="container">
     <div class="row end-xs mt-2">
         <div class="col-xs-12">
-            <input type="text" class="search-input" placeholder="Zoek materialen"
-            #input
-            (keyup)="filterMaterials($event)"
-            >
+            <input type="text" class="search-input" placeholder="Zoek materialen" #input
+                (keyup)="filterMaterials($event)">
+                <a routerLink="/materials/add" mat-raised-button color="primary" class="ml-2">Voeg materiaal toe</a>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="mat-elevation-z8">
-        <table mat-table matSort [dataSource]="dataSource">
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-            </ng-container>
+        <table mat-table matSort [dataSource]="dataSource"  multiTemplateDataRows>
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -32,9 +27,19 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Dikte </th>
                 <td mat-cell *matCellDef="let element"> {{element.thickness}} </td>
             </ng-container>
+            <ng-container matColumnDef="mainColor">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hoofdkleur </th>
+                <td mat-cell *matCellDef="let element"> {{element.mainColor}} </td>
+            </ng-container>
             <ng-container matColumnDef="color">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Kleur </th>
                 <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+            </ng-container>
+            <ng-container matColumnDef="pictureUrl">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Foto </th>
+                <td mat-cell *matCellDef="let element">
+                    <img src="{{element.pictureUrl}}" alt="" style="height: 50px;">
+                </td>
             </ng-container>
             <ng-container matColumnDef="pricePerMeter">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Prijs(m) </th>
@@ -48,9 +53,31 @@
                     </a>
                 </td>
             </ng-container>
+            <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                    <div class="example-element-detail"
+                        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <div class="example-element-description">
+                            <img src="{{element.pictureUrl}}" alt="" style="height: 200px; margin-right: 20px;">
+                        </div>
+                        <div class="example-element-diagram">
+                            <div class="material-name"> {{element.name}} </div>
+                            <div class="example-element-symbol"> Kleur: {{element.color}} </div>
+                            <div class="example-element-symbol"> Dikte: {{element.thickness}}mm </div>
+                            <div class="example-element-symbol"> €{{element.pricePerMeter}} per meter </div>
+                        </div>
+
+                    </div>
+                </td>
+            </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
         <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
         </mat-paginator>

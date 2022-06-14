@@ -15,7 +15,7 @@ export class HardwareMaterialsComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   hardwareMaterials: IHardwareMaterial[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'description'];
+  displayedColumns: string[] = ['name', 'description', 'edit'];
   dataSource: MatTableDataSource<IHardwareMaterial> = new MatTableDataSource<IHardwareMaterial>();
 
   constructor(private hardwareService: HardwareService) { }
@@ -27,7 +27,6 @@ export class HardwareMaterialsComponent implements OnInit {
   getHardwareMaterials() {
     this.hardwareService.getHardwareMaterials().subscribe(async (response) => {
       this.hardwareMaterials = response;
-      console.log(this.hardwareMaterials);
       this.dataSource = new MatTableDataSource<IHardwareMaterial>(this.hardwareMaterials);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;

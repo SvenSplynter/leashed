@@ -18,6 +18,13 @@ namespace Infrastructure.Data
 
                     foreach (var item in colors)
                     {
+                        var pictureFileName = item.PictureUrl;
+                        var color = new Color
+                        {
+                            Name = item.Name,
+                            MainColor = item.MainColor,
+                        };
+                        color.AddPhoto(item.PictureUrl, pictureFileName);
                         context.Colors.Add(item);
                     }
 

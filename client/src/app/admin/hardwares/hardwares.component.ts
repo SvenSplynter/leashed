@@ -17,7 +17,7 @@ export class HardwaresComponent implements OnInit {
   hardwares: IHardware[];
   hardwareParams = new HardwareParams();
 
-  columnsToDisplay: string[] = ['id', 'name', 'hardwareType', 'size', 'hardwareMaterial', 'hardwareColor', 'inStock', 'ordered', 'price'];
+  columnsToDisplay: string[] = ['name', 'hardwareType', 'size', 'hardwareMaterial', 'hardwareColor', 'inStock', 'ordered', 'price', 'edit'];
   dataSource: MatTableDataSource<IHardware> = new MatTableDataSource<IHardware>();
 
 
@@ -29,7 +29,6 @@ export class HardwaresComponent implements OnInit {
 
   getHardwares() {
     this.hardwareService.getHardwares(this.hardwareParams).subscribe(response => {
-      console.log(response);
       this.hardwares = response.data;
       this.dataSource = new MatTableDataSource<IHardware>(this.hardwares);
       if(this.matPaginator) {
@@ -39,7 +38,6 @@ export class HardwaresComponent implements OnInit {
       if(this.matSort) {
         this.dataSource.sort = this.matSort;
       }
-      console.log(this.hardwares);
     }, error => {
       console.log(error);
     });
@@ -48,7 +46,6 @@ export class HardwaresComponent implements OnInit {
   filterHardwares(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(filterValue);
   }
 
 }

@@ -1,0 +1,52 @@
+<div class="page-header">
+    <div class="container">
+        <h1>{{header}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row end-xs top-row">
+        <div class="col-xs-12">
+            <a routerLink="/hardwarematerials" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Ga terug
+            </a>
+        </div>
+    </div>
+    <div class="row" *ngIf="hardwareMaterial">
+        <div class="col-xs-12">
+            <form #hardwareMaterialDetailsForm="ngForm">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Naam</mat-label>
+                            <input type="text" matInput [(ngModel)]="hardwareMaterial.name" name="name" #name="ngModel" required>
+                            <mat-error>Naam is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xs-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Omschrijving</mat-label>
+                            <input type="text" matInput [(ngModel)]="hardwareMaterial.description" name="description" #description="ngModel" required>
+                            <mat-error>Omschrijving is een verplicht veld</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-xs-12">
+                        <div class="row" *ngIf="!isNewHardwareMaterial">
+                            <div class="col">
+                                <button mat-raised-button color="primary" (click)="onUpdate(hardwareMaterialDetailsForm.value)">Bewaren</button>
+                            </div>
+                            <div class="col end-xs">
+                                <button mat-raised-button color="warn" (click)="openDialog()">Verwijderen</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="isNewHardwareMaterial">
+                            <button mat-raised-button color="primary" (click)="onAdd()">Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ import { IProductType } from 'src/app/models/productType';
 import { HardwareService } from '../../hardwares/hardware.service';
 import { MaterialService } from '../../materials/material.service';
 import { ProductService } from '../product.service';
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-view-product',
@@ -66,9 +66,11 @@ export class ViewProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMaterials();
+    this.getDefaultMaterial();
     this.getFinishMaterials();
     this.getProductTypes();
     this.getHardwares();
+    this.getDefaultHardware();
     this.getHooks();
     this.getORings();
     this.getStopBars();
@@ -88,7 +90,6 @@ export class ViewProductComponent implements OnInit {
       if (this.productId.toLowerCase() === 'Add'.toLowerCase()) {
         this.isNewProduct = true;
         this.header = 'Voeg product toe';
-        console.log(this.product);
       } else {
 
         this.isNewProduct = false;
@@ -96,7 +97,6 @@ export class ViewProductComponent implements OnInit {
         this.productService.getProduct(this.productId).subscribe(
           (response) => {
             this.productToChange = response;
-            console.log(this.productToChange);
             this.product = this.productToChange;
           },
           (error) => {
@@ -110,7 +110,6 @@ export class ViewProductComponent implements OnInit {
   getProductTypes() {
     this.productService.getProductTypes().subscribe(async (response) => {
       this.productTypes = response;
-      console.log(this.productTypes);
     }, error => {
       console.log(error);
     }
@@ -119,9 +118,15 @@ export class ViewProductComponent implements OnInit {
 
   getMaterials() {
     this.materialService.getMaterials(this.materialParams).subscribe(response => {
-      console.log(response);
       this.materials = response.data;
-      console.log(this.materials);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getDefaultMaterial() {
+    this.materialService.getMaterials(this.defaultMaterialParams).subscribe(response => {
+      this.defaultMaterials = response.data;
     }, error => {
       console.log(error);
     });
@@ -129,15 +134,8 @@ export class ViewProductComponent implements OnInit {
 
   getFinishMaterials() {
     this.materialService.getMaterials(this.finishMaterialParams).subscribe(response => {
-      console.log('finish');
-      console.log(response);
       this.finishMaterials = response.data;
-    }, error => {
-      console.log(error);
-    });
-    this.materialService.getMaterials(this.defaultMaterialParams).subscribe(response => {
-      this.defaultMaterials = response.data;
-      this.finishMaterials.push(this.defaultMaterials[0]);
+      this.finishMaterials = [this.defaultMaterials[0], ...this.finishMaterials];
     }, error => {
       console.log(error);
     });
@@ -145,9 +143,15 @@ export class ViewProductComponent implements OnInit {
 
   getHardwares() {
     this.hardwareService.getHardwares(this.hardwareParams).subscribe(response => {
-      console.log(response);
       this.hardwares = response.data;
-      console.log(this.hardwares);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getDefaultHardware() {
+    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
+      this.defaultHardware = response.data;
     }, error => {
       console.log(error);
     });
@@ -155,15 +159,8 @@ export class ViewProductComponent implements OnInit {
 
   getHooks() {
     this.hardwareService.getHardwares(this.hookParams).subscribe(response => {
-      console.log(response);
       this.hooks = response.data;
-      console.log(this.hooks);
-    }, error => {
-      console.log(error);
-    });
-    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
-      this.defaultHardware = response.data;
-      this.hooks.push(this.defaultHardware[0]);
+      this.hooks = [this.defaultHardware[0], ...this.hooks];
     }, error => {
       console.log(error);
     });
@@ -171,15 +168,8 @@ export class ViewProductComponent implements OnInit {
 
   getORings() {
     this.hardwareService.getHardwares(this.oRingParams).subscribe(response => {
-      console.log(response);
       this.oRings = response.data;
-      console.log(this.oRings);
-    }, error => {
-      console.log(error);
-    });
-    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
-      this.defaultHardware = response.data;
-      this.oRings.push(this.defaultHardware[0]);
+      this.oRings = [this.defaultHardware[0], ...this.oRings];
     }, error => {
       console.log(error);
     });
@@ -187,15 +177,8 @@ export class ViewProductComponent implements OnInit {
 
   getStopBars() {
     this.hardwareService.getHardwares(this.stopBarParams).subscribe(response => {
-      console.log(response);
       this.stopBars = response.data;
-      console.log(this.stopBars);
-    }, error => {
-      console.log(error);
-    });
-    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
-      this.defaultHardware = response.data;
-      this.stopBars.push(this.defaultHardware[0]);
+      this.stopBars = [this.defaultHardware[0], ...this.stopBars];
     }, error => {
       console.log(error);
     });
@@ -203,15 +186,8 @@ export class ViewProductComponent implements OnInit {
 
   getKeychains() {
     this.hardwareService.getHardwares(this.keychainParams).subscribe(response => {
-      console.log(response);
       this.keychains = response.data;
-      console.log(this.keychains);
-    }, error => {
-      console.log(error);
-    });
-    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
-      this.defaultHardware = response.data;
-      this.keychains.push(this.defaultHardware[0]);
+      this.keychains = [this.defaultHardware[0], ...this.keychains];
     }, error => {
       console.log(error);
     });
@@ -219,15 +195,8 @@ export class ViewProductComponent implements OnInit {
 
   getEndCaps() {
     this.hardwareService.getHardwares(this.endCapParams).subscribe(response => {
-      console.log(response);
       this.endCaps = response.data;
-      console.log(this.endCaps);
-    }, error => {
-      console.log(error);
-    });
-    this.hardwareService.getHardwares(this.defaultHardwareParams).subscribe(response => {
-      this.defaultHardware = response.data;
-      this.endCaps.push(this.defaultHardware[0]);
+      this.endCaps = [this.defaultHardware[0], ...this.endCaps];
     }, error => {
       console.log(error);
     });
@@ -239,7 +208,6 @@ export class ViewProductComponent implements OnInit {
       this.productService.updateProduct(this.productToChange.id, product)
         .subscribe(
           (response) => {
-            console.log(response);
             this.snackbar.open('Wijzigingen opgeslagen', undefined, {
               duration: 2000,
               panelClass: ['mat-toolbar', 'mat-primary']
@@ -254,16 +222,12 @@ export class ViewProductComponent implements OnInit {
           }
         );
     }
-    else {
-      console.log(this.productDetailsForm?.form.valid);
-    }
   }
 
   onDelete(): void {
     this.productService.deleteProduct(this.productToChange.id)
       .subscribe(
         (response) => {
-          console.log(response);
           this.snackbar.open('Product verwijderd', undefined, {
             duration: 2000,
             panelClass: ['mat-toolbar', 'mat-primary']
@@ -288,7 +252,6 @@ export class ViewProductComponent implements OnInit {
       this.productService.addProduct(this.product)
         .subscribe(
           (response) => {
-            console.log(response);
             this.snackbar.open('Product toegevoegd', undefined, {
               duration: 2000,
               panelClass: ['mat-toolbar', 'mat-primary']
@@ -361,7 +324,7 @@ export class ViewProductComponent implements OnInit {
   openDialog() {
     this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(
       (result) => {
-        if(result) {
+        if (result) {
           this.onDelete();
         }
       }

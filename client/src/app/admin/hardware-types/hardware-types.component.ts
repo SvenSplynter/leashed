@@ -15,7 +15,7 @@ export class HardwareTypesComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   hardwareTypes: IHardwareType[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'description'];
+  displayedColumns: string[] = ['name', 'description', 'edit'];
   dataSource: MatTableDataSource<IHardwareType> = new MatTableDataSource<IHardwareType>();
 
   constructor(private hardwareService: HardwareService) { }
@@ -27,7 +27,6 @@ export class HardwareTypesComponent implements OnInit {
   getHardwareTypes() {
     this.hardwareService.getHardwareTypes().subscribe(async (response) => {
       this.hardwareTypes = response;
-      console.log(this.hardwareTypes);
       this.dataSource = new MatTableDataSource<IHardwareType>(this.hardwareTypes);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;

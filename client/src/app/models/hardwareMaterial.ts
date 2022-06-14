@@ -3,3 +3,13 @@ export interface IHardwareMaterial {
     name: string;
     description: string;
 }
+
+export interface IHardwareMaterialToCreate {
+    name: string;
+    description: string;
+}
+
+export class HardwareMaterialFormValues implements IHardwareMaterialToCreate {
+    name = '';
+    description = '';
+}

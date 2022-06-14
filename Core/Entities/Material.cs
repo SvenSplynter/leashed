@@ -9,5 +9,6 @@ namespace Core.Entities
         public Color Color { get; set; }
         public int ColorId { get; set; }
         public decimal PricePerMeter { get; set; }
+        public ColorPhoto[] photos { get; set; }
     }
 }

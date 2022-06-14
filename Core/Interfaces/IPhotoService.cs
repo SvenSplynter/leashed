@@ -7,5 +7,7 @@ namespace Core.Interfaces
     {
         Task<Photo> SaveToDiskAsync(IFormFile photo);
         void DeleteFromDisk(Photo photo);
+        Task<ColorPhoto> SaveToDiskAsyncColor(IFormFile photo);
+        void DeleteFromDiskColor(ColorPhoto photo);
     }
 }

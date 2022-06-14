@@ -15,7 +15,7 @@ export class ProductTypesComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) matSort: MatSort;
   productTypes: IProductType[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'abbreviation', 'edit'];
+  displayedColumns: string[] = ['name', 'abbreviation', 'edit'];
   dataSource: MatTableDataSource<IProductType> = new MatTableDataSource<IProductType>();
 
   constructor(private productService: ProductService) { }
@@ -27,7 +27,6 @@ export class ProductTypesComponent implements OnInit {
   getProductTypes() {
     this.productService.getProductTypes().subscribe(async (response) => {
       this.productTypes = response;
-      console.log(this.productTypes);
       this.dataSource = new MatTableDataSource<IProductType>(this.productTypes);
       if(this.matPaginator) {
         this.dataSource.paginator = this.matPaginator;
