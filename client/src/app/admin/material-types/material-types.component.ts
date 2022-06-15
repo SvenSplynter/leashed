@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IMaterialType } from 'src/app/models/materialType';
+import { IMaterialType } from 'src/app/shared/models/materialType';
 import { MaterialService } from '../materials/material.service';
 
 @Component({

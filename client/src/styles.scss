@@ -6,6 +6,16 @@
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
+@font-face {
+    font-family: "hkgrotesk";
+    src: local("hkgrotest"), url(./assets/fonts/hk-grotesk/HKGrotesk-Medium.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "kollektif";
+    src: local("kollektif"), url(./assets/fonts/kollektif/Kollektif.ttf) format("truetype");
+}
+
 html,
 body {
     height: 100%;
@@ -13,7 +23,7 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "kollektif", sans-serif;
 }
 
 .page-header {
@@ -44,4 +54,49 @@ mat-form-field {
 simple-snack-bar span {
     margin: auto;
     text-align: center;
+}
+
+.btn-primary {
+    background-color: #efbf3b;
+}
+
+.btn-primary:hover {
+    background-color: #52351d;
+}
+
+.btn-tertiary {
+    background-color: #6c6c6c;
+}
+
+.btn-quartiary {
+    background-color: #efeded;
+}
+
+.text-warning {
+    color: #efbf3b !important;
+}
+
+.bg-quartiary {
+    background-color: #efeded;
+}
+.mat-typography {
+    font-family: "kollektif", sans-serif;
+}
+
+.mat-typography h2 {
+    font-family: "hkgrotesk", sans-serif;
+    font-weight: 700;
+}
+
+.mat-typography h3 {
+    font-family: "kollektif", sans-serif;
+}
+
+.nav-items {
+    font-family: "hkgrotesk", sans-serif;
+    font-weight: 400;
+}
+
+.page-item.active .page-link {
+    background-color: #efbf3b;
 }

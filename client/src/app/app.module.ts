@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 
-import { ShopComponent } from './shop/shop.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -15,12 +13,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
+import { CoreModule } from './core/core.module';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    ShopComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +31,9 @@ import { DatePipe } from '@angular/common';
     MatNativeDateModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CoreModule,
+    ShopModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

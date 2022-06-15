@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IHardware } from 'src/app/models/hardware';
-import { HardwareParams } from 'src/app/models/hardwareParams';
+import { IHardware } from 'src/app/shared/models/hardware';
+import { HardwareParams } from 'src/app/shared/models/hardwareParams';
 import { HardwareService } from './hardware.service';
 
 @Component({

@@ -3,10 +3,10 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HardwareFormValues, IHardware } from 'src/app/models/hardware';
-import { IHardwareColor } from 'src/app/models/hardwareColor';
-import { IHardwareMaterial } from 'src/app/models/hardwareMaterial';
-import { IHardwareType } from 'src/app/models/hardwareType';
+import { HardwareFormValues, IHardware } from 'src/app/shared/models/hardware';
+import { IHardwareColor } from 'src/app/shared/models/hardwareColor';
+import { IHardwareMaterial } from 'src/app/shared/models/hardwareMaterial';
+import { IHardwareType } from 'src/app/shared/models/hardwareType';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 import { HardwareService } from '../hardware.service';
 

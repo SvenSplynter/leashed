@@ -3,9 +3,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IColor } from 'src/app/models/color';
-import { IMaterial } from 'src/app/models/material';
-import { MaterialParams } from 'src/app/models/materialParams';
+import { IColor } from 'src/app/shared/models/color';
+import { IMaterial } from 'src/app/shared/models/material';
+import { MaterialParams } from 'src/app/shared/models/materialParams';
 import { MaterialService } from './material.service';
 
 @Component({

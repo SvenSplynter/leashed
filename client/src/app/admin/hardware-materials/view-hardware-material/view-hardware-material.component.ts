@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IHardwareMaterial, HardwareMaterialFormValues } from 'src/app/models/hardwareMaterial';
+import { IHardwareMaterial, HardwareMaterialFormValues } from 'src/app/shared/models/hardwareMaterial';
 import { HardwareService } from '../../hardwares/hardware.service';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 

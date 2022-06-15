@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ColorFormValues, IColor } from 'src/app/models/color';
+import { ColorFormValues, IColor } from 'src/app/shared/models/color';
 import { MaterialService } from '../../materials/material.service';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 

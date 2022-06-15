@@ -1,14 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ColorFormValues, IColor } from 'src/app/models/color';
-import { IMaterial, MaterialFormValues } from 'src/app/models/material';
-import { IMaterialPagination } from 'src/app/models/materialPagination';
-import { MaterialParams } from 'src/app/models/materialParams';
-import { IMaterialType, MaterialTypeFormValues } from 'src/app/models/materialType';
-import { IStockMaterial, StockMaterialFormValues } from 'src/app/models/stockMaterial';
-import { IStockMaterialPagination } from 'src/app/models/stockMaterialPagination';
-import { StockMaterialParams } from 'src/app/models/stockMaterialParams';
+import { ColorFormValues, IColor } from 'src/app/shared/models/color';
+import { IMaterial, MaterialFormValues } from 'src/app/shared/models/material';
+import { IMaterialPagination } from 'src/app/shared/models/materialPagination';
+import { MaterialParams } from 'src/app/shared/models/materialParams';
+import { IMaterialType, MaterialTypeFormValues } from 'src/app/shared/models/materialType';
+import { IStockMaterial, StockMaterialFormValues } from 'src/app/shared/models/stockMaterial';
+import { IStockMaterialPagination } from 'src/app/shared/models/stockMaterialPagination';
+import { StockMaterialParams } from 'src/app/shared/models/stockMaterialParams';
 
 @Injectable({
   providedIn: 'root'

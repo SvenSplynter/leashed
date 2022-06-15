@@ -1,12 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { HardwareFormValues, IHardware } from 'src/app/models/hardware';
-import { HardwareColorFormValues, IHardwareColor } from 'src/app/models/hardwareColor';
-import { HardwareMaterialFormValues, IHardwareMaterial } from 'src/app/models/hardwareMaterial';
-import { IHardwarePagination } from 'src/app/models/hardwarePagination';
-import { HardwareParams } from 'src/app/models/hardwareParams';
-import { HardwareTypeFormValues, IHardwareType } from 'src/app/models/hardwareType';
+import { HardwareFormValues, IHardware } from 'src/app/shared/models/hardware';
+import { HardwareColorFormValues, IHardwareColor } from 'src/app/shared/models/hardwareColor';
+import { HardwareMaterialFormValues, IHardwareMaterial } from 'src/app/shared/models/hardwareMaterial';
+import { IHardwarePagination } from 'src/app/shared/models/hardwarePagination';
+import { HardwareParams } from 'src/app/shared/models/hardwareParams';
+import { HardwareTypeFormValues, IHardwareType } from 'src/app/shared/models/hardwareType';
 
 @Injectable({
   providedIn: 'root'

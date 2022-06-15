@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProductType, ProductTypeFormValues } from 'src/app/models/productType';
+import { IProductType, ProductTypeFormValues } from 'src/app/shared/models/productType';
 import { ProductService } from '../../products/product.service';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 

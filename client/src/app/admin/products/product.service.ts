@@ -1,10 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { IPagination } from 'src/app/models/pagination';
-import { IProduct, ProductFormValues } from 'src/app/models/product';
-import { ProductParams } from 'src/app/models/productParams';
-import { IProductType, ProductTypeFormValues } from 'src/app/models/productType';
+import { IPagination } from 'src/app/shared/models/pagination';
+import { IProduct, ProductFormValues } from 'src/app/shared/models/product';
+import { ProductParams } from 'src/app/shared/models/productParams';
+import { IProductType, ProductTypeFormValues } from 'src/app/shared/models/productType';
 
 @Injectable({
   providedIn: 'root'

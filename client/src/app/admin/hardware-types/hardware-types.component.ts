@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IHardwareType } from 'src/app/models/hardwareType';
+import { IHardwareType } from 'src/app/shared/models/hardwareType';
 import { HardwareService } from '../hardwares/hardware.service';
 
 @Component({

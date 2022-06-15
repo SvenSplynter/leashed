@@ -3,10 +3,10 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IMaterial } from 'src/app/models/material';
-import { IStockMaterial, StockMaterialFormValues } from 'src/app/models/stockMaterial';
+import { IMaterial } from 'src/app/shared/models/material';
+import { IStockMaterial, StockMaterialFormValues } from 'src/app/shared/models/stockMaterial';
 import { MaterialService } from '../../materials/material.service';
-import { MaterialParams } from 'src/app/models/materialParams';
+import { MaterialParams } from 'src/app/shared/models/materialParams';
 import { DeleteDialogComponent } from '../../shared/delete-dialog/delete-dialog.component';
 
 @Component({
