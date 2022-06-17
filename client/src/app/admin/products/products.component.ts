@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
   products: IProduct[];
   productParams = new ProductParams();
 
-  columnsToDisplay: string[] = ['name', 'productType', 'length', 'material', 'finishing', 'finishMaterial1', 'finishMaterial2', 'finishMaterial3', 'hook1', 'hook2', 'oRing1', 'oRing2', 'stopBar', 'keychain', 'endCaps', 'price', 'inStock', 'pictureUrl', 'lastUpdated', 'edit'];
+  columnsToDisplay: string[] = ['name', 'publicName', 'productType', 'length', 'material', 'finishing', 'finishMaterial1', 'finishMaterial2', 'finishMaterial3', 'hook1', 'hook2', 'oRing1', 'oRing2', 'stopBar', 'keychain', 'endCaps', 'price', 'inStock', 'description', 'pictureUrl', 'lastUpdated', 'edit'];
   dataSource: MatTableDataSource<IProduct> = new MatTableDataSource<IProduct>();
   expandedElement: IProduct | null;
 

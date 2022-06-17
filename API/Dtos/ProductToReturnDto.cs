@@ -4,6 +4,7 @@ namespace API.Dtos
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string PublicName { get; set; }
         public string ProductType { get; set; }
         public int ProductTypeId { get; set; }
         public decimal Length { get; set; }
@@ -34,6 +35,7 @@ namespace API.Dtos
         public int EndCapsId { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }
+        public string Description { get; set; }
         public string LastUpdated { get; set; }
         public string PictureUrl { get; set; }
         public IEnumerable<PhotoToReturnDto> Photos { get; set; }

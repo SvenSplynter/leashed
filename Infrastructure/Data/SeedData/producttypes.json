@@ -2,31 +2,37 @@
   {
     "Id": 1,
     "Name": "Standaardlijn",
-    "Abbreviation": "SLN"
+    "Abbreviation": "SLN",
+    "Description": "Lorem Ipsum"
   },
   {
     "Id": 2,
     "Name": "Multilijn",
-    "Abbreviation": "MLN"
+    "Abbreviation": "MLN",
+    "Description": "Lorem Ipsum"
   },
   {
     "Id": 3,
     "Name": "Trainingslijn",
-    "Abbreviation": "TLN"
+    "Abbreviation": "TLN",
+    "Description": "Lorem Ipsum"
   },
   {
     "Id": 4,
     "Name": "Traffic Lead",
-    "Abbreviation": "TLD"
+    "Abbreviation": "TLD",
+    "Description": "Lorem Ipsum"
   },
   {
     "Id": 5,
     "Name": "Halsband",
-    "Abbreviation": "HBD"
+    "Abbreviation": "HBD",
+    "Description": "Lorem Ipsum"
   },
   {
     "Id": 6,
     "Name": "Keychain",
-    "Abbreviation": "KCN"
+    "Abbreviation": "KCN",
+    "Description": "Lorem Ipsum"
   }
 ]

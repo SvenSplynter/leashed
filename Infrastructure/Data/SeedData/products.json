@@ -2,6 +2,7 @@
   {
     "Id": 1,
     "Name": "TLN multiblauw 10 mono silver grey",
+    "PublicName": "Trainingslijn1",
     "ProductTypeId": 3,
     "Length": 3,
     "MaterialId": 3,
@@ -18,12 +19,14 @@
     "EndCapsId": 12,
     "Price": 26,
     "InStock": 1,
+    "Description": "Lorem Ipsum",
     "PictureUrl": "images/leiband1.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 2,
     "Name": "TLN multirood 10 spiraal white ocean blue",
+    "PublicName": "Trainingslijn2",
     "ProductTypeId": 3,
     "Length": 3,
     "MaterialId": 2,
@@ -40,12 +43,14 @@
     "EndCapsId": 12,
     "Price": 26,
     "InStock": 1,
+    "Description": "Lorem Ipsum",
     "PictureUrl": "images/leiband2.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 3,
     "Name": "TLD multiblauw 10 spiraal",
+    "PublicName": "Traffic Lead",
     "ProductTypeId": 4,
     "Length": 5,
     "MaterialId": 3,
@@ -62,12 +67,14 @@
     "EndCapsId": 13,
     "Price": 32,
     "InStock": 4,
+    "Description": "Lorem Ipsum",
     "PictureUrl": "images/leiband3.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 4,
     "Name": "HBD",
+    "PublicName": "Halsband",
     "ProductTypeId": 5,
     "Length": 0.5,
     "MaterialId": 16,
@@ -84,12 +91,14 @@
     "EndCapsId": 10,
     "Price": 17,
     "InStock": 1,
-    "PictureUrl": "images/leiband4.jpg",
+    "Description": "Lorem Ipsum",
+    "PictureUrl": "images/leiband1.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 5,
     "Name": "MLN",
+    "PublicName": "Multilijn",
     "ProductTypeId": 2,
     "Length": 5,
     "MaterialId": 10,
@@ -106,12 +115,14 @@
     "EndCapsId": 11,
     "Price": 35,
     "InStock": 1,
-    "PictureUrl": "images/leiband5.jpg",
+    "Description": "Lorem Ipsum",
+    "PictureUrl": "images/leiband2.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 6,
     "Name": "KCN",
+    "PublicName": "Keychain",
     "ProductTypeId": 6,
     "Length": 0,
     "MaterialId": 8,
@@ -128,12 +139,14 @@
     "EndCapsId": 11,
     "Price": 8,
     "InStock": 1,
-    "PictureUrl": "images/leiband6.jpg",
+    "Description": "Lorem Ipsum",
+    "PictureUrl": "images/leiband3.jpg",
     "LastUpdated": "01/06/2022"
   },
   {
     "Id": 7,
     "Name": "SLN",
+    "PublicName": "Standaardlijn",
     "ProductTypeId": 1,
     "Length": 3,
     "MaterialId": 11,
@@ -150,7 +163,8 @@
     "EndCapsId": 11,
     "Price": 28,
     "InStock": 1,
-    "PictureUrl": "images/leiband7.jpg",
+    "Description": "Lorem Ipsum",
+    "PictureUrl": "images/leiband3.jpg",
     "LastUpdated": "01/06/2022"
   }
 ]

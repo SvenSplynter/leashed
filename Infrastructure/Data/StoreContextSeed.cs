@@ -155,6 +155,7 @@ namespace Infrastructure.Data
                         var product = new Product
                         {
                             Name = item.Name,
+                            PublicName = item.PublicName,
                             ProductTypeId = item.ProductTypeId,
                             Length = item.Length,
                             MaterialId = item.MaterialId,
@@ -171,6 +172,7 @@ namespace Infrastructure.Data
                             EndCapsId = item.EndCapsId,
                             Price = item.Price,
                             InStock = item.InStock,
+                            Description = item.Description,
                             LastUpdated = item.LastUpdated
                         };
                         product.AddPhoto(item.PictureUrl, pictureFileName);

@@ -10,7 +10,7 @@
             #input
             (keyup)="filterHardwareMaterials($event)"
             >
-            <a routerLink="/hardwarematerials/add" mat-raised-button color="primary" class="ml-2">Voeg hardware materiaal toe</a>
+            <a routerLink="/admin/hardwarematerials/add" mat-raised-button color="primary" class="ml-2">Voeg hardware materiaal toe</a>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
                 <td mat-cell *matCellDef="let element">
-                    <a [routerLink]="['/hardwarematerials/', element.id]">
+                    <a [routerLink]="['/admin/hardwarematerials/', element.id]">
                         <mat-icon>edit</mat-icon>
                     </a>
                 </td>

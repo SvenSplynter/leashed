@@ -1,6 +1,7 @@
 export interface IProduct {
     id: number;
     name: string;
+    publicName: string;
     productType: string;
     productTypeId: number;
     length: number;
@@ -31,6 +32,7 @@ export interface IProduct {
     endCapsId: number;
     price: number;
     inStock: number;
+    description: string;
     lastUpdated: string;
     pictureUrl: string;
     photos: IPhoto[];
@@ -45,6 +47,7 @@ export interface IPhoto {
 
 export interface IProductToCreate {
     name: string;
+    publicName: string;
     productTypeId: number;
     length: number;
     materialId: number;
@@ -61,12 +64,14 @@ export interface IProductToCreate {
     endCapsId: number;
     price: number;
     inStock: number;
+    description: string;
     lastUpdated: string;
     pictureUrl: string;
 }
 
 export class ProductFormValues implements IProductToCreate {
     name = '';
+    publicName = '';
     productTypeId: number;
     length = 0;
     materialId: number;
@@ -83,6 +88,7 @@ export class ProductFormValues implements IProductToCreate {
     endCapsId: number;
     price = 0;
     inStock = 0;
+    description = '';
     pictureUrl = '';
     lastUpdated = '';
 

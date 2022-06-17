@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,8 +13,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
-import { CoreModule } from './core/core.module';
-import { ShopModule } from './shop/shop.module';
+import { WebshopRoutingModule } from './webshop/webshop-routing.module';
+import { ErrorInterceptor } from './webshop/core/interceptors/error.interceptor';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LoadingInterceptor } from './webshop/core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { ShopModule } from './shop/shop.module';
     BrowserModule,
     AppRoutingModule,
     AdminRoutingModule,
+    WebshopRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatPaginatorModule,
@@ -32,10 +36,14 @@ import { ShopModule } from './shop/shop.module';
     MatDialogModule,
     MatDatepickerModule,
     MatSnackBarModule,
-    CoreModule,
-    ShopModule
+    BreadcrumbModule,
+    MatProgressBarModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

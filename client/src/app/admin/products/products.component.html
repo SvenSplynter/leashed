@@ -10,7 +10,7 @@
             #input
             (keyup)="filterProducts($event)"
             >
-            <a routerLink="/products/add" mat-raised-button color="primary" class="ml-2">Voeg product toe</a>
+            <a routerLink="/admin/products/add" mat-raised-button color="primary" class="ml-2">Voeg product toe</a>
         </div>
     </div>
 </div>
@@ -20,6 +20,10 @@
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Naam </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="publicName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Publieke Naam </th>
+                <td mat-cell *matCellDef="let element"> {{element.publicName}} </td>
             </ng-container>
             <ng-container matColumnDef="productType">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
@@ -85,6 +89,10 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
                 <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
             </ng-container>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Omschrijving </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
             <ng-container matColumnDef="pictureUrl">
                 <th mat-header-cell *matHeaderCellDef> Foto </th>
                 <td mat-cell *matCellDef="let element">
@@ -98,7 +106,7 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
                 <td mat-cell *matCellDef="let element">
-                    <a [routerLink]="['/products/', element.id]">
+                    <a [routerLink]="['/admin/products/', element.id]">
                         <mat-icon>edit</mat-icon>
                     </a>
                 </td>
@@ -116,6 +124,10 @@
                             <div class="example-element-symbol"> {{element.color}} </div>
                             <div class="example-element-symbol"> €{{element.price}} </div>
                             <div class="example-element-symbol"> Voorraad: {{element.inStock}} </div>
+                        </div>
+                        <div class="example-element-diagram">
+                            <div class="product-name">Publieke naam: {{element.publicName}} </div>
+                            <div class="example-element-symbol">Omschrijving: {{element.description}} </div>
                         </div>
 
                     </div>

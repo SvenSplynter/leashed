@@ -6,7 +6,7 @@ namespace Core.Specifications
     {
         public ProductsWithMaterialsAndHardwaresSpecification(ProductSpecParams productParams)
             : base(x => 
-                (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
+                (string.IsNullOrEmpty(productParams.Search) || (x.Name.ToLower().Contains(productParams.Search) || x.PublicName.ToLower().Contains(productParams.Search))) &&
                 (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId) &&
                 (!productParams.Size.HasValue || x.Material.Thickness == productParams.Size)
             )
@@ -28,7 +28,7 @@ namespace Core.Specifications
             AddInclude(x => x.EndCaps);
             AddInclude(x => x.StopBar);
             AddInclude(x => x.Photos);
-            AddOrderBy(x => x.Name);
+            AddOrderBy(x => x.PublicName);
             ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
 
             if(!string.IsNullOrEmpty(productParams.Sort)) 
@@ -42,7 +42,7 @@ namespace Core.Specifications
                         AddOrderByDescending(p => p.Price);
                         break;
                     default:
-                        AddOrderBy(n => n.Name);
+                        AddOrderBy(n => n.PublicName);
                         break;
                 }
             }

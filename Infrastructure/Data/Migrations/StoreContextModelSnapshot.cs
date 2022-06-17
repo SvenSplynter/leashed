@@ -266,6 +266,9 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("EndCapsId")
                         .HasColumnType("INTEGER");
 
@@ -322,6 +325,11 @@ namespace Infrastructure.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PublicName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("StopBarId")
                         .HasColumnType("INTEGER");
 
@@ -363,6 +371,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Abbreviation")
                         .IsRequired()
                         .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

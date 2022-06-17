@@ -3,6 +3,7 @@ namespace API.Dtos
     public class ProductToCreateDto
     {
         public string Name { get; set; }
+        public string PublicName { get; set; }
         public int ProductTypeId { get; set; }
         public decimal Length { get; set; }
         public int MaterialId { get; set; }
@@ -19,6 +20,7 @@ namespace API.Dtos
         public int EndCapsId { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }
+        public string Description { get; set; }
         public string PictureUrl { get; set; }
         public string LastUpdated { get; set; }
     }

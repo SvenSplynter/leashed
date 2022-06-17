@@ -10,7 +10,7 @@
             #input
             (keyup)="filterColors($event)"
             >
-            <a routerLink="/colors/add" mat-raised-button color="primary" class="ml-2">Voeg kleur toe</a>
+            <a routerLink="/admin/colors/add" mat-raised-button color="primary" class="ml-2">Voeg kleur toe</a>
         </div>
     </div>
 </div>
@@ -34,7 +34,7 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
                 <td mat-cell *matCellDef="let element">
-                    <a [routerLink]="['/colors/', element.id]">
+                    <a [routerLink]="['/admin/colors/', element.id]">
                         <mat-icon>edit</mat-icon>
                     </a>
                 </td>

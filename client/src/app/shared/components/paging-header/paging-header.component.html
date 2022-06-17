@@ -8,12 +8,12 @@
                 ? totalCount 
                 : pageNumber * pageSize
             }}
-        </strong> of 
+        </strong> van 
         <strong>
             {{totalCount}}
-        </strong> results
+        </strong> resultaten
     </span>
     <span *ngIf="totalCount === 0">
-        There are <strong>0</strong> results for this filter.
+        Er zijn <strong>0</strong> resultaten voor deze filter.
     </span>
 </header>

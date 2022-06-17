@@ -3,8 +3,11 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+@import "../node_modules/bootswatch/dist/lux/bootstrap.min.css";
 
 @font-face {
     font-family: "hkgrotesk";
@@ -79,6 +82,7 @@ simple-snack-bar span {
 .bg-quartiary {
     background-color: #efeded;
 }
+
 .mat-typography {
     font-family: "kollektif", sans-serif;
 }
@@ -99,4 +103,48 @@ simple-snack-bar span {
 
 .page-item.active .page-link {
     background-color: #efbf3b;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.xng-breadcrumb-root {
+    padding: 8px 16px;
+    display: inline;
+    border-radius: 0;
+}
+
+.xng-breadcrumb-trail {
+    margin-bottom: 0;
+    color: #efbf3b !important;
+}
+
+.xng-breadcrumb-separator {
+    padding: 0;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #efbf3b;
+}
+
+.dark-backdrop {
+    background: rgba(198, 198, 198, 0.3);
+}
+
+.btn-outline-primary {
+    color: #efbf3b;
+    border-color: #efbf3b;
+}
+
+.btn-outline-success {
+    color: #52351d;
+    border-color: #52351d;
 }

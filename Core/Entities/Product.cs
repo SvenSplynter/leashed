@@ -3,6 +3,7 @@ namespace Core.Entities
     public class Product : BaseEntity
     {
         public string Name { get; set; }
+        public string PublicName { get; set; }
         public ProductType ProductType { get; set; }
         public int ProductTypeId { get; set; }
         public decimal Length { get; set; }
@@ -31,6 +32,7 @@ namespace Core.Entities
         public int EndCapsId { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }
+        public string Description { get; set; }
         public string LastUpdated { get; set; }
         private readonly List<Photo> _photos = new List<Photo>();
         public IReadOnlyList<Photo> Photos => _photos.AsReadOnly();

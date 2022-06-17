@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row end-xs top-row">
         <div class="col-xs-12">
-            <a routerLink="/products" color="primary" mat-raised-button>
+            <a routerLink="/admin/products" color="primary" mat-raised-button>
                 <mat-icon>chevron_left</mat-icon>
                 Ga terug
             </a>
@@ -29,7 +29,16 @@
                                 <mat-form-field appearance="outline">
                                     <mat-label>Lengte (m)</mat-label>
                                     <input type="number" matInput [(ngModel)]="product.length" name="length" #length="ngModel" required>
-                                    <mat-error>Product type is een verplicht veld</mat-error>
+                                    <mat-error>Lengte is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Publieke naam</mat-label>
+                                    <input type="text" matInput [(ngModel)]="product.publicName" name="publicName" #publicName="ngModel" required>
+                                    <mat-error>Publieke naam is een verplicht veld</mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -189,6 +198,15 @@
                                         </mat-option>
                                     </mat-select>
                                     <mat-error>End Caps is een verplicht veld</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Omschrijving</mat-label>
+                                    <textarea matInput [(ngModel)]="product.description" name="description" #description="ngModel" required></textarea>
+                                    <mat-error>Omschrijving is een verplicht veld</mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
