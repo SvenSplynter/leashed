@@ -1,0 +1,20 @@
+<div class="bg-light px-4 py-3 text-uppercase font-weigh-bold">
+    Overzicht bestelling
+</div>
+<div class="p-4">
+    <p class="font-italic mb-4">Verzendkosten worden toegevoegd afhankelijk van de gekozen methode bij checkout</p>
+    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async) as totals">
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Subtotaal</strong>
+            <strong>€{{totals.subtotal}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Verzending</strong>
+            <strong>€{{totals.shipping}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">Totaal</strong>
+            <strong>€{{totals.total}}</strong>
+        </li>
+    </ul>
+</div>

@@ -5,13 +5,15 @@ import { PagingHeaderComponent } from './components/paging-header/paging-header.
 import { PagerComponent } from './components/pager/pager.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
     PagerComponent,
-    SpinnerOverlayComponent
+    SpinnerOverlayComponent,
+    OrderTotalsComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     PaginationModule,
     PagingHeaderComponent,
     PagerComponent,
-    SpinnerOverlayComponent
+    SpinnerOverlayComponent,
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }

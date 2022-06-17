@@ -61,18 +61,22 @@ simple-snack-bar span {
 
 .btn-primary {
     background-color: #efbf3b;
+    border: #efbf3b;
 }
 
 .btn-primary:hover {
     background-color: #52351d;
+    border: #52351d;
 }
 
 .btn-tertiary {
     background-color: #6c6c6c;
+    border: #6c6c6c
 }
 
 .btn-quartiary {
     background-color: #efeded;
+    border: #efeded;
 }
 
 .text-warning {
@@ -142,9 +146,24 @@ body {
 .btn-outline-primary {
     color: #efbf3b;
     border-color: #efbf3b;
+    &:hover {
+        color: white;
+        background: #52351d;
+        border: #52351d;
+    }
 }
 
 .btn-outline-success {
     color: #52351d;
     border-color: #52351d;
+    &:hover {
+        color: white;
+        background: #6c6c6c;
+        border: #6c6c6c;
+    }
+}
+
+.form-control:focus {
+    border: #efbf3b !important;
+    box-shadow: 0 0 0 0.2rem rgba(239, 191, 59, 0.5);
 }
