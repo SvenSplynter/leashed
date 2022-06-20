@@ -68,6 +68,8 @@ namespace API.Helpers
             CreateMap<ColorToCreateDto, Color>();
 
             CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<CustomerBasketDto, CustomerBasket>();
+            CreateMap<BasketItemDto, BasketItem>();
         }
     }
 }
