@@ -6,6 +6,9 @@ import { PagerComponent } from './components/pager/pager.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TextInputComponent } from './components/text-input/text-input.component';
 
 
 @NgModule({
@@ -13,19 +16,25 @@ import { OrderTotalsComponent } from './components/order-totals/order-totals.com
     PagingHeaderComponent,
     PagerComponent,
     SpinnerOverlayComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    TextInputComponent
   ],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot()
   ],
   exports: [
     PaginationModule,
     PagingHeaderComponent,
     PagerComponent,
     SpinnerOverlayComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    ReactiveFormsModule,
+    BsDropdownModule,
+    TextInputComponent
   ]
 })
 export class SharedModule { }

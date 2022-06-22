@@ -22,7 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             if(error.error.errors) {
               throw error.error;
             } else {
-              this.snackbar.open(error.error.message, error.error.statusCode, {
+              this.snackbar.open(error.error.message, "Ok", {
                 duration: 2000,
                 panelClass: ['mat-toolbar', 'mat-primary']
               });
@@ -30,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
           }
           if (error.status === 401) {
-            this.snackbar.open(error.error.message, error.error.statusCode, {
+            this.snackbar.open(error.error.message, "Ok", {
               duration: 2000,
               panelClass: ['mat-toolbar', 'mat-primary']
             });

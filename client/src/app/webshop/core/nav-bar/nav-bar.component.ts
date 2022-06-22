@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AccountService } from 'src/app/account/account.service';
 import { IBasket } from 'src/app/shared/models/basket';
+import { IUser } from 'src/app/shared/models/user';
 import { BasketService } from '../../basket/basket.service';
 
 @Component({
@@ -11,8 +13,9 @@ import { BasketService } from '../../basket/basket.service';
 export class NavBarComponent implements OnInit {
   basket$: Observable<IBasket>;
   itemCount: number = 0;
+  currentUser$: Observable<IUser>;
 
-  constructor(private basketService: BasketService) { }
+  constructor(private basketService: BasketService, private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
@@ -27,6 +30,11 @@ export class NavBarComponent implements OnInit {
           console.log(error); 
         }
       });
+      this.currentUser$ = this.accountService.currentUser$;
+  }
+
+  logout() {
+    this.accountService.logout();
   }
 
   // getTotalBasketItems(basket$: Observable<IBasket>): number {

@@ -13,14 +13,37 @@
                     <div *ngIf="itemCount && itemCount > 0" class="cart-no">{{itemCount}}</div>
                 </a>
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <div>
-                    <a class="btn btn-outline-secondary mr-2">Login</a>
+            <ng-container *ngIf="(currentUser$ | async) === null">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div>
+                        <a routerLink="/account/login" class="btn btn-outline-secondary mr-2">Login</a>
+                    </div>
+                    <div>
+                        <a routerLink="/account/register" class="btn btn-outline-secondary mr-3">Sign up</a>
+                    </div>
                 </div>
-                <div>
-                    <a class="btn btn-outline-secondary mr-3">Sign up</a>
+            </ng-container>
+            <ng-container *ngIf="currentUser$ | async">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown ms-3 me-5" style="font-size: 1.2em;" dropdown>
+                        <a class="dropdown-toggle" style="cursor: pointer;" dropdownToggle>
+                            <strong>Welcome {{(currentUser$ | async).displayName}}</strong>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
+                            <a routerLink="/webshop/basket" class="dropdown-item d-flex align-items-center py-2">
+                                <i class="fa fa-shopping-cart me-3"></i> View Basket
+                            </a>
+                            <a routerLink="/webshop/orders" class="dropdown-item d-flex align-items-center py-2">
+                                <i class="fa fa-history me-3"></i> View Orders
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+                                <i class="fa fa-sign-out me-3"></i> Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </ng-container>
         </div>
     </div>
 </div>

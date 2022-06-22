@@ -11,6 +11,10 @@ export class WebshopComponent implements OnInit {
   constructor(private basketService: BasketService) { }
 
   ngOnInit(): void {
+    this.loadBasket();
+  }
+
+  loadBasket() {
     const basketId = localStorage.getItem('basket_id');
     if (basketId) {
       this.basketService.getBasket(basketId)

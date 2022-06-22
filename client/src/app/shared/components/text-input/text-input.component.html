@@ -1,0 +1,20 @@
+<div class="form-floating">
+    <input
+        [ngClass]="(controlDir && controlDir.control && controlDir.control.touched) ? !controlDir.control.valid ? 'is-invalid' : 'is-valid' : null"
+        [type]="type" 
+        (input)="onChange($event.target.value)" 
+        (blur)="onTouched()" 
+        class="form-control" 
+        id="{{label}}"
+        #input 
+        placeholder="{{label}}">
+    <label for="{{label}}">{{label}}</label>
+    <div class="invalid-feedback"
+        *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.touched)">
+        <span *ngIf="controlDir.control.errors?.required">{{label}} is een verplicht veld</span>
+        <span *ngIf="controlDir.control.errors?.pattern">Ongeldig emailadres</span>
+    </div>
+    <div class="invalid-feedback d-block" *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.dirty)">
+        <span *ngIf="controlDir.control.errors?.emailExists">Emailadres is reeds in gebruik</span>
+    </div>
+</div>
