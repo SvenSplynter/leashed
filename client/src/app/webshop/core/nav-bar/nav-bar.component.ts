@@ -14,6 +14,7 @@ export class NavBarComponent implements OnInit {
   basket$: Observable<IBasket>;
   itemCount: number = 0;
   currentUser$: Observable<IUser>;
+  isAdmin$: Observable<boolean>;
 
   constructor(private basketService: BasketService, private accountService: AccountService) { }
 
@@ -31,6 +32,7 @@ export class NavBarComponent implements OnInit {
         }
       });
       this.currentUser$ = this.accountService.currentUser$;
+      this.isAdmin$ = this.accountService.isAdmin$;
   }
 
   logout() {

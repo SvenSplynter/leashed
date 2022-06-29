@@ -3,15 +3,19 @@
         <a routerLink="/home" mat-fab color="accent">
             <mat-icon>home</mat-icon>
         </a>
-        <a  routerLink="products" mat-raised-button>Products</a>
-        <a  routerLink="producttypes" mat-raised-button>Product Types</a>
-        <a  routerLink="materials" mat-raised-button>Materialen</a>
-        <a  routerLink="stockmaterials" mat-raised-button>Stock</a>
-        <a  routerLink="materialtypes" mat-raised-button>Materiaal Types</a>
-        <a  routerLink="colors" mat-raised-button>Kleuren</a>
-        <a  routerLink="hardwares" mat-raised-button>Hardware</a>
-        <a  routerLink="hardwaretypes" mat-raised-button>HW types</a>
-        <a  routerLink="hardwarematerials" mat-raised-button>HW materialen</a>
-        <a  routerLink="hardwarecolors" mat-raised-button>HW kleuren</a>
+        <a routerLink="products" mat-raised-button>Products</a>
+        <a routerLink="producttypes" mat-raised-button>Product Types</a>
+        <a routerLink="materials" mat-raised-button>Materialen</a>
+        <a routerLink="stockmaterials" mat-raised-button>Stock</a>
+        <a routerLink="materialtypes" mat-raised-button>Materiaal Types</a>
+        <a routerLink="colors" mat-raised-button>Kleuren</a>
+        <a routerLink="hardwares" mat-raised-button>Hardware</a>
+        <a routerLink="hardwaretypes" mat-raised-button>HW types</a>
+        <a routerLink="hardwarematerials" mat-raised-button>HW materialen</a>
+        <a routerLink="hardwarecolors" mat-raised-button>HW kleuren</a>
     </div>
+    <button mat-button [matMenuTriggerFor]="menu">{{(currentUser$ | async).displayName}}</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()"><i class="fa fa-sign-out me-3"></i> Uitloggen</button>
+    </mat-menu>
 </mat-toolbar>

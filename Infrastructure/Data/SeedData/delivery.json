@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "ShortName": "Express",
+    "Description": "Express levering",
+    "DeliveryTime": "1-2 Days",
+    "Price": 10
+  },
+  {
+    "Id": 2,
+    "ShortName": "DPD",
+    "Description": "DPD",
+    "DeliveryTime": "2-5 dagen",
+    "Price": 5
+  },
+  {
+    "Id": 3,
+    "ShortName": "Bpost",
+    "Description": "Bpost",
+    "DeliveryTime": "5-10 dagen",
+    "Price": 2
+  },
+  {
+    "Id": 4,
+    "ShortName": "Gratis",
+    "Description": "Gratis verzending",
+    "DeliveryTime": "1-2 weken",
+    "Price": 0
+  }
+]

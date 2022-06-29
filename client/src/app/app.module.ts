@@ -18,6 +18,7 @@ import { ErrorInterceptor } from './webshop/core/interceptors/error.interceptor'
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingInterceptor } from './webshop/core/interceptors/loading.interceptor';
+import { JwtInterceptor } from './webshop/core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoadingInterceptor } from './webshop/core/interceptors/loading.intercep
   providers: [
     DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ using API.Dtos;
 using AutoMapper;
 using API.Errors;
 using API.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -54,6 +55,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductToReturnDto>> CreateProduct(ProductToCreateDto productToCreate)
         {
             var product = _mapper.Map<ProductToCreateDto, Product>(productToCreate);
@@ -68,6 +70,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductToReturnDto>> UpdateProduct(int id, ProductToCreateDto productToUpdate)
         {
             var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
@@ -84,6 +87,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
             var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
@@ -103,6 +107,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}/photo")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductToReturnDto>> AddProductPhoto(int id, [FromForm] ProductPhotoDto photoDto)
         {
             var spec = new ProductsWithMaterialsAndHardwaresSpecification(id);
@@ -132,6 +137,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}/photo/{photoId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteProductPhoto(int id, int photoId)
         {
             var spec = new ProductsWithMaterialsAndHardwaresSpecification(id);
@@ -164,6 +170,7 @@ namespace API.Controllers
         }
 
         [HttpPost("{id}/photo/{photoId}")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductToReturnDto>> SetMainPhoto(int id, int photoId)
         {
             var spec = new ProductsWithMaterialsAndHardwaresSpecification(id);
@@ -189,6 +196,7 @@ namespace API.Controllers
         }
 
         [HttpPost("producttypes")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductType>> CreateProductType(ProductTypeToCreateDto productTypeToCreate)
         {
             var productType = _mapper.Map<ProductTypeToCreateDto, ProductType>(productTypeToCreate);
@@ -209,6 +217,7 @@ namespace API.Controllers
         }
 
         [HttpPut("producttypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductType>> UpdateProductType(int id, ProductTypeToCreateDto productTypeToUpdate)
         {
             var productType = await _unitOfWork.Repository<ProductType>().GetByIdAsync(id);
@@ -225,6 +234,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("producttypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteProductType(int id)
         {
             var productType = await _unitOfWork.Repository<ProductType>().GetByIdAsync(id);
@@ -264,6 +274,7 @@ namespace API.Controllers
         }
 
         [HttpPost("colors")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ColorToReturnDto>> CreateColor(ColorToCreateDto colorToCreate)
         {
             var color = _mapper.Map<ColorToCreateDto, Color>(colorToCreate);
@@ -278,6 +289,7 @@ namespace API.Controllers
         }
 
         [HttpPut("colors/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ColorToReturnDto>> UpdateColor(int id, ColorToCreateDto colorToUpdate)
         {
             var color = await _unitOfWork.Repository<Color>().GetByIdAsync(id);
@@ -294,6 +306,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("colors/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteColor(int id)
         {
             var color = await _unitOfWork.Repository<Color>().GetByIdAsync(id);
@@ -313,6 +326,7 @@ namespace API.Controllers
         }
 
         [HttpPut("colors/{id}/photo")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ColorToReturnDto>> AddColorPhoto(int id, [FromForm] ProductPhotoDto photoDto)
         {
             var spec = new ColorsWithPhotosSpecification(id);
@@ -342,6 +356,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("colors/{id}/photo/{photoId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteColorPhoto(int id, int photoId)
         {
             var spec = new ColorsWithPhotosSpecification(id);
@@ -374,6 +389,7 @@ namespace API.Controllers
         }
 
         [HttpPost("colors/{id}/photo/{photoId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ColorToReturnDto>> SetMainPhotoColor(int id, int photoId)
         {
             var spec = new ColorsWithPhotosSpecification(id);
@@ -421,6 +437,7 @@ namespace API.Controllers
         }
 
         [HttpPost("hardwares")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareToReturnDto>> CreateHardware(HardwareToCreateDto hardwareToCreate)
         {
             var hardware = _mapper.Map<HardwareToCreateDto, Hardware>(hardwareToCreate);
@@ -435,6 +452,7 @@ namespace API.Controllers
         }
 
         [HttpPut("hardwares/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateHardware(int id, HardwareToCreateDto hardwareToUpdate)
         {
             var hardware = await _unitOfWork.Repository<Hardware>().GetByIdAsync(id);
@@ -451,6 +469,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("hardwares/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteHardware(int id)
         {
             var hardware = await _unitOfWork.Repository<Hardware>().GetByIdAsync(id);
@@ -493,6 +512,7 @@ namespace API.Controllers
         }
 
         [HttpPost("materials")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<MaterialToReturnDto>> CreateMaterial(MaterialToCreateDto materialToCreate)
         {
             var material = _mapper.Map<MaterialToCreateDto, Material>(materialToCreate);
@@ -507,6 +527,7 @@ namespace API.Controllers
         }
 
         [HttpPut("materials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateMaterial(int id, MaterialToCreateDto materialToUpdate)
         {
             var material = await _unitOfWork.Repository<Material>().GetByIdAsync(id);
@@ -523,6 +544,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("materials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteMaterial(int id)
         {
             var material = await _unitOfWork.Repository<Material>().GetByIdAsync(id);
@@ -565,6 +587,7 @@ namespace API.Controllers
         }
 
         [HttpPost("stockmaterials")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<StockmaterialToReturnDto>> CreateStockMaterial(StockMaterialToCreateDto stockmaterialToCreate)
         {
             var stockmaterial = _mapper.Map<StockMaterialToCreateDto, StockMaterial>(stockmaterialToCreate);
@@ -579,6 +602,7 @@ namespace API.Controllers
         }
 
         [HttpPut("stockmaterials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateStockMaterial(int id, StockMaterialToCreateDto stockmaterialToUpdate)
         {
             var stockmaterial = await _unitOfWork.Repository<StockMaterial>().GetByIdAsync(id);
@@ -595,6 +619,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("stockmaterials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteStockMaterial(int id)
         {
             var stockmaterial = await _unitOfWork.Repository<StockMaterial>().GetByIdAsync(id);
@@ -615,6 +640,7 @@ namespace API.Controllers
         }
 
         [HttpPost("materialtypes")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductType>> CreateMaterialType(MaterialTypeToCreateDto materialTypeToCreate)
         {
             var materialType = _mapper.Map<MaterialTypeToCreateDto, MaterialType>(materialTypeToCreate);
@@ -635,6 +661,7 @@ namespace API.Controllers
         }
 
         [HttpPut("materialtypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<MaterialType>> UpdateMaterialType(int id, MaterialTypeToCreateDto materialTypeToUpdate)
         {
             var materialType = await _unitOfWork.Repository<MaterialType>().GetByIdAsync(id);
@@ -651,6 +678,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("materialtypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteMaterialType(int id)
         {
             var materialType = await _unitOfWork.Repository<MaterialType>().GetByIdAsync(id);
@@ -671,6 +699,7 @@ namespace API.Controllers
         }
 
         [HttpPost("hardwaretypes")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareType>> CreateHardwareType(HardwareTypeToCreateDto hardwareTypeToCreate)
         {
             var hardwareType = _mapper.Map<HardwareTypeToCreateDto, HardwareType>(hardwareTypeToCreate);
@@ -691,6 +720,7 @@ namespace API.Controllers
         }
 
         [HttpPut("hardwaretypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareType>> UpdateHardwareType(int id, HardwareTypeToCreateDto hardwareTypeToUpdate)
         {
             var hardwareType = await _unitOfWork.Repository<HardwareType>().GetByIdAsync(id);
@@ -707,6 +737,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("hardwaretypes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteHardwareType(int id)
         {
             var hardwareType = await _unitOfWork.Repository<HardwareType>().GetByIdAsync(id);
@@ -726,7 +757,8 @@ namespace API.Controllers
             return Ok(await _unitOfWork.Repository<HardwareMaterial>().ListAllAsync());
         }
 
-                [HttpPost("hardwarematerials")]
+        [HttpPost("hardwarematerials")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareMaterial>> CreateHardwareMaterial(HardwareMaterialToCreateDto hardwareMaterialToCreate)
         {
             var hardwareMaterial = _mapper.Map<HardwareMaterialToCreateDto, HardwareMaterial>(hardwareMaterialToCreate);
@@ -747,6 +779,7 @@ namespace API.Controllers
         }
 
         [HttpPut("hardwarematerials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareMaterial>> UpdateHardwareMaterial(int id, HardwareMaterialToCreateDto hardwareMaterialToUpdate)
         {
             var hardwareMaterial = await _unitOfWork.Repository<HardwareMaterial>().GetByIdAsync(id);
@@ -763,6 +796,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("hardwarematerials/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteHardwareMaterial(int id)
         {
             var hardwareMaterial = await _unitOfWork.Repository<HardwareMaterial>().GetByIdAsync(id);
@@ -783,6 +817,7 @@ namespace API.Controllers
         }
 
         [HttpPost("hardwarecolors")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareColor>> CreateHardwareColor(HardwareColorToCreateDto hardwareColorToCreate)
         {
             var hardwareColor = _mapper.Map<HardwareColorToCreateDto, HardwareColor>(hardwareColorToCreate);
@@ -803,6 +838,7 @@ namespace API.Controllers
         }
 
         [HttpPut("hardwarecolors/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<HardwareColor>> UpdateHardwareColor(int id, HardwareColorToCreateDto hardwareColorToUpdate)
         {
             var hardwareColor = await _unitOfWork.Repository<HardwareColor>().GetByIdAsync(id);
@@ -819,6 +855,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("hardwarecolors/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteHardwareColor(int id)
         {
             var hardwareColor = await _unitOfWork.Repository<HardwareColor>().GetByIdAsync(id);

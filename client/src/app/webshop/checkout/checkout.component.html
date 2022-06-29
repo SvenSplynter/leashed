@@ -1,3 +1,43 @@
 <div class="container mt-5">
-    <h1>Placeholder voor de checkout pagina</h1>
+    <div class="row">
+        <div class="col-8">
+            <mat-vertical-stepper [linear]="true" #stepper>
+                <ng-template matStepperIcon="edit" let-index="index"> {{ index + 1 }} </ng-template>
+                <mat-step [stepControl]="checkoutForm.get('addressForm')">
+                    <ng-template matStepLabel>Persoonlijke gegevens</ng-template>
+                    <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
+                    <div class="float-none d-flex justify-content-between flex-column flex-lg-row">
+                        <button class="btn btn-outline-secondary mt-4" routerLink="/webshop/basket">winkelwagentje</button>
+                        <button class="btn btn-outline-primary mt-4" matStepperNext [disabled]="!(checkoutForm.get('addressForm')).valid">Volgende</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Verzendwijze</ng-template>
+                    <app-checkout-delivery [checkoutForm]="checkoutForm"></app-checkout-delivery>
+                    <div class="float-none d-flex justify-content-between flex-column flex-lg-row">
+                        <button class="btn btn-outline-secondary mt-4" matStepperPrevious>Vorige</button>
+                        <button class="btn btn-outline-primary mt-4" matStepperNext [disabled]="!(checkoutForm.get('deliveryForm')).valid">Volgende</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Samenvatting</ng-template>
+                    <app-checkout-review></app-checkout-review>
+                    <div class="float-none d-flex justify-content-between flex-column flex-lg-row ">
+                        <button class="btn btn-outline-secondary mt-4" matStepperPrevious>Vorige</button>
+                        <button class="btn btn-outline-primary mt-4" matStepperNext>Volgende</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Betaling</ng-template>
+                    <app-checkout-payment [checkoutForm]="checkoutForm"></app-checkout-payment>
+                    <div class="float-none d-flex justify-content-between flex-column flex-lg-row ">
+                        <button class="btn btn-outline-secondary mt-4" matStepperPrevious>Vorige</button>
+                    </div>
+                </mat-step>
+            </mat-vertical-stepper>
+        </div>
+        <div class="col-4">
+            <app-order-totals></app-order-totals>
+        </div>
+    </div>
 </div>

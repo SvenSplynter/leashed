@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { IPagination } from 'src/app/shared/models/pagination';
@@ -95,4 +95,5 @@ export class ProductService {
   addProductType(productType: ProductTypeFormValues) {
     return this.http.post(this.baseUrl + 'products/producttypes', productType);
   }
+
 }

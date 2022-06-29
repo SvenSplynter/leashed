@@ -12,6 +12,8 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<IUser>(1);
   currentUser$ = this.currentUserSource.asObservable();
+  private isAdminSource = new ReplaySubject<boolean>(1);
+  isAdmin$ = this.isAdminSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -30,6 +32,7 @@ export class AccountService {
           if (user) {
             localStorage.setItem('token', user.token);
             this.currentUserSource.next(user);
+            this.isAdminSource.next(this.isAdmin(user.token));
           }
         })
       )
@@ -42,6 +45,7 @@ export class AccountService {
           if (user) {
             localStorage.setItem('token', user.token);
             this.currentUserSource.next(user);
+            this.isAdminSource.next(this.isAdmin(user.token));
           }
         })
       );
@@ -67,5 +71,14 @@ export class AccountService {
 
   checkEmailExists(email: string) {
     return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  isAdmin(token: string): boolean {
+    if (token) {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      if (decodedToken.role.indexOf('Admin') > -1) {
+        return true;
+      }
+    }
   }
 }

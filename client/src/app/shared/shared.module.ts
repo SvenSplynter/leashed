@@ -9,6 +9,8 @@ import { OrderTotalsComponent } from './components/order-totals/order-totals.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import { TextInputComponent } from './components/text-input/text-input.component
     PagerComponent,
     SpinnerOverlayComponent,
     OrderTotalsComponent,
-    TextInputComponent
+    TextInputComponent,
+    BasketSummaryComponent
   ],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    RouterModule
   ],
   exports: [
     PaginationModule,
@@ -34,7 +38,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     OrderTotalsComponent,
     ReactiveFormsModule,
     BsDropdownModule,
-    TextInputComponent
+    TextInputComponent,
+    BasketSummaryComponent
   ]
 })
 export class SharedModule { }
